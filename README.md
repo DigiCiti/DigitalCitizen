@@ -1,5 +1,5 @@
 # DigitalCitizen
-The general repository for work on the Digital Citizen project.
+This is the general repository for work on the Digital Citizen project.
 
 Will be adding explanation of project mission, status, objectives, and more to complete this README.
 
