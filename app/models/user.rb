@@ -1,4 +1,4 @@
-require 'bcrypt'
+# require 'bcrypt'
 
 class User < ApplicationRecord
   has_secure_password
