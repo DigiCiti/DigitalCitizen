@@ -8,18 +8,33 @@
 
 require 'faker'
 
-# max_users = 15
-# users_needed = max_users - User.count
-#
-# users_needed.times do
-#   person = {}
-#   person[:username] = Faker::Internet.user_name(5..8)
-#   person[:email] = Faker::Internet.safe_email
-#   person[:password] = Faker::Internet.password(5, 10)
-#
-#   user = User.create(person)
-#
-# end
+max_users = 15
+users_needed = max_users - User.count
+
+users_needed.times do
+  person = {}
+  person[:username] = Faker::Internet.user_name(5..8)
+  person[:email] = Faker::Internet.safe_email
+  person[:password] = Faker::Internet.password(5, 10)
+
+  user = User.create(person)
+
+end
+
+max_quizzes = 15
+quizzes_needed = max_quizzes - Quiz.count
+
+quizzes_needed.times do
+  quiz_questions = {}
+  quiz_questions[:question_1] = 'Global warming is a man-made problem.'
+  quiz_questions[:question_2] = 'Abortions should be legal under certain circumstances.'
+  quiz_questions[:question_3] = 'The most successful and wealtheist citizens of a nation are the primary driving force of national success.'
+  quiz_questions[:question_4] = 'Government regulations interfere with freedom more than they help protect it.'
+  quiz_questions[:question_5] = 'We need a large government in order to handle all large scale issues where the prosperity of the public is at stake.'
+
+  quiz = Quiz.create(quiz_questions)
+
+end
 
 max_responses = 15
 responses_needed = max_responses - Response.count
@@ -36,20 +51,5 @@ responses_needed.times do
   response_set[:quiz_result] = ['far left liberal', 'liberal', 'moderate liberal', 'moderate', 'moderate conservative', 'conservative', 'far right conservative'].sample
 
   response = Response.create(response_set)
-
-end
-
-max_quizzes = 15
-quizzes_needed = max_quizzes - Quiz.count
-
-quizzes_needed.times do
-  quiz_questions = {}
-  quiz_questions[:question_1] = 'Global warming is a man-made problem.'
-  quiz_questions[:question_2] = 'Abortions should be legal under certain circumstances.'
-  quiz_questions[:question_3] = 'The most successful and wealtheist citizens of a nation are the primary driving force of national success.'
-  quiz_questions[:question_4] = 'Government regulations interfere with freedom more than they help protect it.'
-  quiz_questions[:question_5] = 'We need a large government in order to handle all large scale issues where the prosperity of the public is at stake.'
-
-  quiz = Quiz.create(quiz_questions)
 
 end

@@ -1,17 +1,19 @@
-helpers do
+module SessionHelpers
+
   def login(user)
     session[:id] = user.id
   end
 
- def current_user
+  def current_user
     @user ||=User.find(session[:id]) if session[:id]
- end
+  end
 
- def logout
+  def logout
     session[:id] = nil
- end
+  end
 
- def logged_in?
+  def logged_in?
     !!current_user
- end
+  end
+
 end
