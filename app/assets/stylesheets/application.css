@@ -14,7 +14,7 @@
  *= require_self
  */
  body {
-   background-image: url("../images/uscapitol.jpg");
+   background-image: url("uscapitol.jpg");
    background-color: rgb(182, 232, 250);
  }
 
