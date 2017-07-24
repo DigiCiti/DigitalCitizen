@@ -1,0 +1,21 @@
+<div id="quiz-result-box">
+  <h2>Quiz Result:</h2>
+  <h3>Based on your quiz results it appears you're a "<%= @resp.quiz_result %>".</h3>
+  <h5>You had <%= @resp.left %> points toward liberalism and <%= @resp.right %> toward conservatism.</h5>
+  <% if @resp.quiz_result == "far left liberal" %>
+    <a href="https://en.wikipedia.org/wiki/Far-left_politics" target="_blank">Click here to learn more about your stance!</a>
+    <% elsif @resp.quiz_result == "liberal" %>
+      <a href="https://en.wikipedia.org/wiki/Liberal" target="_blank">Click here to learn more about your stance!</a>
+    <% elsif @resp.quiz_result == "moderate liberal" %>
+      <a href="https://en.wikipedia.org/wiki/Centre-left_politics" target="_blank">Click here to learn more about your stance!</a>
+    <% elsif @resp.quiz_result == "moderate" %>
+      <a href="https://en.wikipedia.org/wiki/Moderate" target="_blank">Click here to learn more about your stance!</a>
+    <% elsif @resp.quiz_result == "moderate conservative" %>
+      <a href="https://en.wikipedia.org/wiki/Centre-right_politics" target="_blank">Click here to learn more about your stance!</a>
+    <% elsif @resp.quiz_result == "conservative" %>
+      <a href="https://en.wikipedia.org/wiki/Conservatism" target="_blank">Click here to learn more about your stance!</a>
+    <% elsif @resp.quiz_result == "far right conservative" %>
+      <a href="https://en.wikipedia.org/wiki/Far-right_politics" target="_blank">Click here to learn more about your stance!</a>
+  <% end %>
+  <br><br>
+</div>
