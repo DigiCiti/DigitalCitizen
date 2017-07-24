@@ -1,0 +1,64 @@
+<div id="quiz-form-box">
+  <p>Log in and enter your quiz responses to determine your likely political leaning on a spectrum of liberal to conservative:</p>
+  <p>Note that being liberal or conservative is not the same as being a Democrat or Republican. We may be surprised that Liberal to Democrat, and Conservative to Republican correlations are not nearly as strong as we thought.</p>
+  <% if current_user %>
+    <form class="" action="/quiz_responses" method="post">
+      <p> <%= @quiz.question_1 %></p>
+      <label>Answer 1:</label>
+      <select name="response[response_1]" required>
+        <option value="">select response</option>
+        <option value="Strongly Agree">Strongly Agree</option>
+        <option value="Agree">Agree</option>
+        <option value="Disagree">Disagree</option>
+        <option value="Strongly Disagree">Strongly Disagree</option>
+        <option value="N/A">N/A</option>
+      </select>
+      <br><br>
+      <p> <%= @quiz.question_2 %></p>
+      <label>Answer 2:</label>
+      <select name="response[response_2]">
+        <option value="">select response</option>
+        <option value="Strongly Agree">Strongly Agree</option>
+        <option value="Agree">Agree</option>
+        <option value="Disagree">Disagree</option>
+        <option value="Strongly Disagree">Strongly Disagree</option>
+        <option value="N/A">N/A</option>
+      </select>
+      <br><br>
+      <p> <%= @quiz.question_3 %></p>
+      <label>Answer 3:</label>
+      <select name="response[response_3]">
+        <option value="">select response</option>
+        <option value="Strongly Agree">Strongly Agree</option>
+        <option value="Agree">Agree</option>
+        <option value="Disagree">Disagree</option>
+        <option value="Strongly Disagree">Strongly Disagree</option>
+        <option value="N/A">N/A</option>
+      </select>
+      <br><br>
+      <p> <%= @quiz.question_4 %></p>
+      <label>Answer 4:</label>
+      <select name="response[response_4]">
+        <option value="">select response</option>
+        <option value="Strongly Agree">Strongly Agree</option>
+        <option value="Agree">Agree</option>
+        <option value="Disagree">Disagree</option>
+        <option value="Strongly Disagree">Strongly Disagree</option>
+        <option value="N/A">N/A</option>
+      </select>
+      <br><br>
+      <p> <%= @quiz.question_5 %></p>
+      <label>Answer 5:</label>
+      <select name="response[response_5]">
+        <option value="">select response</option>
+        <option value="Strongly Agree">Strongly Agree</option>
+        <option value="Agree">Agree</option>
+        <option value="Disagree">Disagree</option>
+        <option value="Strongly Disagree">Strongly Disagree</option>
+        <option value="N/A">N/A</option>
+      </select>
+      <br><br><br>
+      <input type="submit" name="submit" value="Submit Quiz">
+    </form>
+  <% end %>
+</div>
