@@ -1,0 +1,15 @@
+<div id="member-show">
+  <div id="member-profile-img">
+    <img src="https://theunitedstates.io/images/congress/225x275/<%= @member_full_deets["id"] %>.jpg" alt="">
+  </div>
+  <div id="member-show-basic_info">
+    <label>Name: </label><%= @member_full_deets["first_name"] + " " + @member_full_deets["last_name"] %><br>
+    <label>State: </label><%= @member_full_deets["state"] %><br>
+    <label>Party: </label><%= @member_full_deets["party"] %><br>
+    <label>District: </label><%= @member_full_deets["district"] %><br>
+    <label>Phone: </label><%= @member_full_deets["phone"] %><br>
+    <label>House Profile: </label><a href="<%= @member_full_deets["url"] %>" target="_blank"><%= @member_full_deets["url"] %></a><br>
+    <label>Facebook: </label><a href="https://www.facebook.com/<%= @member_full_deets["facebook_account"] %>" target="_blank"><%= @member_full_deets["facebook_account"] %></a><br>
+    <label>Twitter: </label><a href="https://twitter.com/<%= @member_full_deets["twitter_account"] %>" target="_blank"><%= @member_full_deets["twitter_account"] %></a><br>
+  </div>
+</div>
