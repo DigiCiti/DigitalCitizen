@@ -11,7 +11,7 @@
         <option value="Agree">Agree</option>
         <option value="Disagree">Disagree</option>
         <option value="Strongly Disagree">Strongly Disagree</option>
-        <option value="N/A">N/A</option>
+        <!-- <option value="N/A">N/A</option> -->
       </select>
       <br><br>
       <p> <%= @quiz.question_2 %></p>
@@ -22,7 +22,7 @@
         <option value="Agree">Agree</option>
         <option value="Disagree">Disagree</option>
         <option value="Strongly Disagree">Strongly Disagree</option>
-        <option value="N/A">N/A</option>
+        <!-- <option value="N/A">N/A</option> -->
       </select>
       <br><br>
       <p> <%= @quiz.question_3 %></p>
@@ -33,7 +33,7 @@
         <option value="Agree">Agree</option>
         <option value="Disagree">Disagree</option>
         <option value="Strongly Disagree">Strongly Disagree</option>
-        <option value="N/A">N/A</option>
+        <!-- <option value="N/A">N/A</option> -->
       </select>
       <br><br>
       <p> <%= @quiz.question_4 %></p>
@@ -44,7 +44,7 @@
         <option value="Agree">Agree</option>
         <option value="Disagree">Disagree</option>
         <option value="Strongly Disagree">Strongly Disagree</option>
-        <option value="N/A">N/A</option>
+        <!-- <option value="N/A">N/A</option> -->
       </select>
       <br><br>
       <p> <%= @quiz.question_5 %></p>
@@ -55,10 +55,11 @@
         <option value="Agree">Agree</option>
         <option value="Disagree">Disagree</option>
         <option value="Strongly Disagree">Strongly Disagree</option>
-        <option value="N/A">N/A</option>
+        <!-- <option value="N/A">N/A</option> -->
       </select>
       <br><br><br>
-      <input type="submit" name="submit" value="Submit Quiz">
+      <input type="hidden" name="response[quiz_id]" value="<%= @quiz.id %>">
+      <input type="submit" value="Submit Quiz">
     </form>
   <% end %>
 </div>
