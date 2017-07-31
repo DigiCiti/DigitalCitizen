@@ -4,10 +4,10 @@
 <%= flash[:error] %>
 <%= form_for :user, url: '/users' do |f| %>
 
-  User Name: <%= f.text_field :username %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
+  User Name: <%= f.text_field :username %><br><br>
+  Email: <%= f.text_field :email %><br><br>
+  Password: <%= f.password_field :password %><br><br>
+  Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
   <%= f.submit "Register" %>
 
 <% end %>
