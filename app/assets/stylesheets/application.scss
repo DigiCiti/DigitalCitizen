@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+// us design standards gem installation granting access to library css
+ @import 'uswds_rails_overrides/core/defaults';
+ @import 'uswds/all';
+ @import 'uswds_rails_overrides/all';
+
  body {
    background: image-url("uscapitol.jpg");
    background-color: rgb(182, 232, 250);
