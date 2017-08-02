@@ -15,43 +15,55 @@
  */
 
 // us design standards gem installation granting access to library css
- @import 'uswds_rails_overrides/core/defaults';
- @import 'uswds/all';
- @import 'uswds_rails_overrides/all';
+@import 'uswds_rails_overrides/core/defaults';
+@import 'uswds/all';
+@import 'uswds_rails_overrides/all';
 
- body {
-   background: image-url("uscapitol.jpg");
-   background-color: rgb(182, 232, 250);
-   background-repeat: no-repeat;
-   background-attachment: fixed;
- }
+// google font
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
- $l-blue-box: rgba(182, 232, 250, 0.8);
+body {
+  background: image-url("uscapitol.jpg");
+  background-color: rgb(182, 232, 250);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
- #nav-container {
-   background-color: rgba(255, 255, 255, 0.6);
- }
+$l-blue-box: rgba(182, 232, 250, 0.8);
 
- #navbar {
-   display: inline-block;
-   float: right;
-   margin: 25px 25px 0px 0px;
- }
+#nav-container {
+  background-color: rgba(255, 255, 255, 0.6);
+}
 
- #nav-title {
-   display: inline-block;
-   margin-left: 50px;
-   margin-right: 50px;
-   margin-top: 20px;
- }
+#navbar {
+  display: inline-block;
+  float: right;
+  margin: 25px 25px 0px 0px;
+}
 
- #nav-logged-user {
-   display:inline-block;
- }
+#nav-logo {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
 
- .nav-item {
-   margin: 10px 10px 10px 10px;
- }
+#nav-title {
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  margin-left: 30px;
+  margin-right: 50px;
+  margin-top: 15px;
+  color: $color-cool-blue-light;
+}
+
+#nav-logged-user {
+  display:inline-block;
+}
+
+.nav-item {
+  margin: 10px 10px 10px 10px;
+}
 
 // Ported CSS from Sinatra version that will probably not be needed
  // #member-list {
@@ -102,19 +114,19 @@
  //   position: absolute;
  // }
 
- #quiz-form-box {
-   background-color: $l-blue-box;
-   max-width: 900px;
-   border-radius: 25px;
-   height: 1000px;
-   padding: 20px 20px 20px 20px;
-   display: inline-block;
-   display: block;
-   text-align: center;
-   margin: 0 auto;
-   margin-top: 50px;
-   margin-bottom: 50px;
- }
+#quiz-form-box {
+  background-color: $l-blue-box;
+  max-width: 900px;
+  border-radius: 25px;
+  height: 1000px;
+  padding: 20px 20px 20px 20px;
+  display: inline-block;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
 .quiz-dropdown {
   display: block;
@@ -126,46 +138,46 @@
   margin: 0 auto;
 }
 
- #quiz-result-box {
-   background-color: $l-blue-box;
-   max-width: 650px;
-   border-radius: 25px;
-   height: 300px;
-   padding: 20px 20px 20px 20px;
-   display: block;
-   margin: 0 auto;
-   margin-top: 50px;
-   margin-bottom: 50px;
- }
+#quiz-result-box {
+  background-color: $l-blue-box;
+  max-width: 650px;
+  border-radius: 25px;
+  height: 300px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
- #registration-container {
-   background-color: $l-blue-box;
-   max-width: 500px;
-   min-width: 400px;
-   border-radius: 25px;
-   height: 900px;
-   padding: 20px 20px 20px 20px;
-   display: block;
-   margin: 0 auto;
-   margin-top: 50px;
-   margin-bottom: 50px;
- }
+#registration-container {
+  background-color: $l-blue-box;
+  max-width: 500px;
+  min-width: 400px;
+  border-radius: 25px;
+  height: 850px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
- #login-container {
-   background-color: $l-blue-box;
-   max-width: 500px;
-   min-width: 400px;
-   border-radius: 25px;
-   height: 450px;
-   padding: 20px 20px 20px 20px;
-   display: block;
-   margin: 0 auto;
-   margin-top: 50px;
-   margin-bottom: 50px;
- }
+#login-container {
+  background-color: $l-blue-box;
+  max-width: 500px;
+  min-width: 400px;
+  border-radius: 25px;
+  height: 450px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
- .auth-inputs {
-   display: block;
-   margin: 0 auto;
-   text-align: center;
- }
+.auth-inputs {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
