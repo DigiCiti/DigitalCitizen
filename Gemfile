@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'faker'
 gem 'bcrypt'
+# us design standards for css... js is claimed untested
+# https://github.com/18F/uswds-rails-gem
+gem 'uswds-rails', github: '18F/uswds-rails-gem'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,10 +1,12 @@
-<h1>Login</h1>
+<div id="login-container">
+  <h2 class="usa-header">Login</h2>
 
-<%= flash[:error] %>
-<%= form_tag '/sessions' do %>
+  <%= flash[:error] %>
+  <%= form_tag '/sessions' do %>
 
-  Email: <%= text_field_tag :email %><br><br>
-  Password: <%= password_field_tag :password %><br><br>
-  <%= submit_tag "Submit" %>
+    Email: <%= text_field_tag :email %><br>
+    Password: <%= password_field_tag :password %>
+    <%= submit_tag "Submit" %>
 
-<% end %>
+  <% end %>
+</div>
