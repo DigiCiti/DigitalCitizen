@@ -26,6 +26,8 @@
    background-attachment: fixed;
  }
 
+ $l-blue-box: rgba(182, 232, 250, 0.8);
+
  #nav-container {
    background-color: rgba(255, 255, 255, 0.6);
  }
@@ -101,7 +103,7 @@
  // }
 
  #quiz-form-box {
-   background-color: rgba(182, 232, 250, 0.8);
+   background-color: $l-blue-box;
    max-width: 900px;
    border-radius: 25px;
    height: 1000px;
@@ -124,13 +126,46 @@
   margin: 0 auto;
 }
 
-
  #quiz-result-box {
-   background-color: rgba(182, 232, 250, 0.8);
+   background-color: $l-blue-box;
    max-width: 650px;
    border-radius: 25px;
    height: 300px;
-   margin: 50px 50px 50px 50px;
    padding: 20px 20px 20px 20px;
-   display: inline-block;
+   display: block;
+   margin: 0 auto;
+   margin-top: 50px;
+   margin-bottom: 50px;
+ }
+
+ #registration-container {
+   background-color: $l-blue-box;
+   max-width: 500px;
+   min-width: 400px;
+   border-radius: 25px;
+   height: 700px;
+   padding: 20px 20px 20px 20px;
+   display: block;
+   margin: 0 auto;
+   margin-top: 50px;
+   margin-bottom: 50px;
+ }
+
+ #login-container {
+   background-color: $l-blue-box;
+   max-width: 500px;
+   min-width: 400px;
+   border-radius: 25px;
+   height: 600px;
+   padding: 20px 20px 20px 20px;
+   display: block;
+   margin: 0 auto;
+   margin-top: 50px;
+   margin-bottom: 50px;
+ }
+
+ .auth-inputs {
+   display: block;
+   margin: 0 auto;
+   text-align: center;
  }

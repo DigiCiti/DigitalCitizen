@@ -1,13 +1,14 @@
+<div id="registration-container">
+  <h1>Sign Up</h1>
 
-<h1>Register Below</h1>
+  <%= flash[:error] %>
+  <%= form_for :user, url: '/users' do |f| %>
 
-<%= flash[:error] %>
-<%= form_for :user, url: '/users' do |f| %>
+    User Name: <%= f.text_field :username, class: 'auth-inputs' %><br><br>
+    Email: <%= f.text_field :email, class: 'auth-inputs' %><br><br>
+    Password: <%= f.password_field :password, class: 'auth-inputs' %>
+    Password Confirmation: <%= f.password_field :password_confirmation, class: 'auth-inputs' %><br>
+    <%= f.submit "Register" %>
 
-  User Name: <%= f.text_field :username %><br><br>
-  Email: <%= f.text_field :email %><br><br>
-  Password: <%= f.password_field :password %><br><br>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
-  <%= f.submit "Register" %>
-
-<% end %>
+  <% end %>
+</div>
