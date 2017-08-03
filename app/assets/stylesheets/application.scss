@@ -1,0 +1,183 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// us design standards gem installation granting access to library css
+@import 'uswds_rails_overrides/core/defaults';
+@import 'uswds/all';
+@import 'uswds_rails_overrides/all';
+
+// google font
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+  background: image-url("uscapitol.jpg");
+  background-color: rgb(182, 232, 250);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+$l-blue-box: rgba(182, 232, 250, 0.8);
+
+#nav-container {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+#navbar {
+  display: inline-block;
+  float: right;
+  margin: 25px 25px 0px 0px;
+}
+
+#nav-logo {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#nav-title {
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  margin-left: 30px;
+  margin-right: 50px;
+  margin-top: 15px;
+  color: $color-cool-blue-light;
+}
+
+#nav-logged-user {
+  display:inline-block;
+}
+
+.nav-item {
+  margin: 10px 10px 10px 10px;
+}
+
+// Ported CSS from Sinatra version that will probably not be needed
+ // #member-list {
+ //   background-color: rgba(182, 232, 250, 0.7);
+ //   max-width: 500px;
+ //   border-radius: 25px;
+ //   height: 700px;
+ //   margin: 50px 50px 50px 50px;
+ //   overflow-y: auto;
+ //   padding: 20px 20px 20px 20px;
+ //   display: inline-block;
+ // }
+ //
+ // #member_search_formdiv {
+ //   display: inline-block;
+ //   background-color: rgba(182, 232, 250, 0.7);
+ //   max-width: 500px;
+ //   border-radius: 25px;
+ //   height: 125px;
+ //   margin: 50px 50px 50px 0px;
+ //   overflow-y: auto;
+ //   padding: 20px 20px 20px 20px;
+ //   vertical-align: top;
+ // }
+ //
+ // #member-show {
+ //   display: inline-block;
+ //   background-color: rgba(182, 232, 250, 0.7);
+ //   max-width: 700px;
+ //   border-radius: 25px;
+ //   height: 280px;
+ //   margin: 50px 50px 50px 0px;
+ //   padding: 20px 20px 20px 20px;
+ // }
+ //
+ // #member-profile-img {
+ //   display: inline-block;
+ // }
+ //
+ // #member-show-basic_info {
+ //   display: inline-block;
+ //   vertical-align: top;
+ //   line-height: inherit;
+ // }
+ //
+ // #search-result-holder {
+ //   display: inline-block;
+ //   position: absolute;
+ // }
+
+#quiz-form-box {
+  background-color: $l-blue-box;
+  max-width: 900px;
+  border-radius: 25px;
+  height: 1000px;
+  padding: 20px 20px 20px 20px;
+  display: inline-block;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.quiz-dropdown {
+  display: block;
+  margin: 0 auto;
+}
+
+#quiz-button {
+  display: block;
+  margin: 0 auto;
+}
+
+#quiz-result-box {
+  background-color: $l-blue-box;
+  max-width: 650px;
+  border-radius: 25px;
+  height: 300px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#registration-container {
+  background-color: $l-blue-box;
+  max-width: 500px;
+  min-width: 400px;
+  border-radius: 25px;
+  height: 850px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#login-container {
+  background-color: $l-blue-box;
+  max-width: 500px;
+  min-width: 400px;
+  border-radius: 25px;
+  height: 450px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.auth-inputs {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}

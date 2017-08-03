@@ -1,13 +1,19 @@
+<div id="registration-container">
+  <h2 class="usa-header">Sign Up</h2>
+  <p>Welcome to DigiCiti!</p>
+  <p>This site is currently in early stages of development but
+  its goal is to dramatically improve the citizen role in governance.  For more previews and an explanation of the plans for this project check out <%= link_to "digiciti.org.", "https://digiciti.org/" %></p>
 
-<h1>Register Below</h1>
+  <p>Sign up below to stay updated with improvements in the project and to try out some of the existing features.</p>
 
-<%= flash[:error] %>
-<%= form_for :user, url: '/users' do |f| %>
+  <%= flash[:error] %>
+  <%= form_for :user, url: '/users' do |f| %>
 
-  User Name: <%= f.text_field :username %><br><br>
-  Email: <%= f.text_field :email %><br><br>
-  Password: <%= f.password_field :password %><br><br>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
-  <%= f.submit "Register" %>
+    User Name: <%= f.text_field :username, class: 'auth-inputs' %><br>
+    Email: <%= f.text_field :email, class: 'auth-inputs' %><br>
+    Password: <%= f.password_field :password, class: 'auth-inputs' %><br>
+    Password Confirmation: <%= f.password_field :password_confirmation, class: 'auth-inputs' %><br>
+    <%= f.submit "Register" %>
 
-<% end %>
+  <% end %>
+</div>
