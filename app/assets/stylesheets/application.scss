@@ -22,6 +22,8 @@
 // google font
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
+$l-blue-box: rgba(182, 232, 250, 0.8);
+
 body {
   background: image-url("uscapitol.jpg");
   background-color: rgb(182, 232, 250);
@@ -29,7 +31,7 @@ body {
   background-attachment: fixed;
 }
 
-$l-blue-box: rgba(182, 232, 250, 0.8);
+// --nav
 
 #nav-container {
   background-color: rgba(255, 255, 255, 0.6);
@@ -64,6 +66,119 @@ $l-blue-box: rgba(182, 232, 250, 0.8);
 .nav-item {
   margin: 10px 10px 10px 10px;
 }
+
+// --quiz
+
+#quiz-form-box {
+  background-color: $l-blue-box;
+  max-width: 900px;
+  border-radius: 25px;
+  height: 1000px;
+  padding: 20px 20px 20px 20px;
+  display: inline-block;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.quiz-dropdown {
+  display: block;
+  margin: 0 auto;
+}
+
+#quiz-button {
+  display: block;
+  margin: 0 auto;
+}
+
+#quiz-result-box {
+  background-color: $l-blue-box;
+  max-width: 650px;
+  border-radius: 25px;
+  height: 300px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+// --auth
+
+#registration-container {
+  background-color: $l-blue-box;
+  max-width: 500px;
+  min-width: 400px;
+  border-radius: 25px;
+  height: 850px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#login-container {
+  background-color: $l-blue-box;
+  max-width: 500px;
+  min-width: 400px;
+  border-radius: 25px;
+  height: 450px;
+  padding: 20px 20px 20px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.auth-inputs {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+// -- hub
+
+#hub-container {
+  background-color: $l-blue-box;
+  // max-width: 500px;
+  // min-width: 400px;
+  border-radius: 25px;
+  height: 450px;
+  padding: 1px 20px 20px 20px;
+  // display: block;
+  // margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.hub-section {
+  background-color: $l-blue-box;
+  // max-width: 500px;
+  // min-width: 400px;
+  border-radius: 25px;
+  height: 450px;
+  padding: 1px 20px 20px 20px;
+  // display: block;
+  // margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Ported CSS from Sinatra version that will probably not be needed
  // #member-list {
@@ -113,71 +228,3 @@ $l-blue-box: rgba(182, 232, 250, 0.8);
  //   display: inline-block;
  //   position: absolute;
  // }
-
-#quiz-form-box {
-  background-color: $l-blue-box;
-  max-width: 900px;
-  border-radius: 25px;
-  height: 1000px;
-  padding: 20px 20px 20px 20px;
-  display: inline-block;
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.quiz-dropdown {
-  display: block;
-  margin: 0 auto;
-}
-
-#quiz-button {
-  display: block;
-  margin: 0 auto;
-}
-
-#quiz-result-box {
-  background-color: $l-blue-box;
-  max-width: 650px;
-  border-radius: 25px;
-  height: 300px;
-  padding: 20px 20px 20px 20px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-#registration-container {
-  background-color: $l-blue-box;
-  max-width: 500px;
-  min-width: 400px;
-  border-radius: 25px;
-  height: 850px;
-  padding: 20px 20px 20px 20px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-#login-container {
-  background-color: $l-blue-box;
-  max-width: 500px;
-  min-width: 400px;
-  border-radius: 25px;
-  height: 450px;
-  padding: 20px 20px 20px 20px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.auth-inputs {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
