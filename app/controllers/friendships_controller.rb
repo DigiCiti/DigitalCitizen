@@ -1,12 +1,20 @@
 class FriendshipsController < ApplicationController
 
   def create
+    # if it has already been created and approved return message saying so
+    # if already created and rejected or unanswered reroute it to update for
+      # update of timestamp reaordering or alteration of status from rejected
+      # to unanswered
   end
 
   def update
+    p '*' * 80
+    p params
   end
 
   def destroy
+    p '*' * 80
+    p params
   end
 
 end

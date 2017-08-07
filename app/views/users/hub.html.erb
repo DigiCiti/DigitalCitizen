@@ -1,10 +1,30 @@
 <div class="usa-grid usa-width-one-half" id="hub-container">
   <h1 class="usa-header"><%= current_user.username %>'s Hub</h1>
   <p>This project is in very early stages of development so there aren't many features yet.  This page will eventually serve as a central place for a user to manage their activities on the site.</p>
+  <p>Each of the sections below is a temporary placeholder for a feature of the hub page.  Some of them are semi-functional while others are merely just a note.</p>
+  <p>Please take a moment to explore them.</p>
 </div>
 
 <div class="usa-grid usa-width-one-third hub-section">
-  <p>Connections</p>
+  <h5>Connections</h5>
+  <hr>
+  <p>Contact List:</p>
+  <% @friendships.each do |friendship| %>
+    <p><%= render partial: "friend_display", locals: {friendship: friendship} %></p>
+  <% end %>
+
+  <p>Pending Contact Requests:</p>
+  <% @pending_friendship_requests.each do |friendship| %>
+    <p><%= render partial: "friend_display", locals: {friendship: friendship} %>
+       - <%= link_to "Approve", friendship_path(@contact_id), method: :put %>
+       | <%= link_to "Reject", friendship_path(@contact_id), method: :delete %>
+    </p>
+  <% end %>
+
+  <p>Sent Requests</p>
+  <% @sent_pend_friend_req.each do |friendship| %>
+    <p><%= render partial: "friend_display", locals: {friendship: friendship} %></p>
+  <% end %>
 </div>
 
 <div class="usa-grid usa-width-one-third hub-section">

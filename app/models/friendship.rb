@@ -3,4 +3,5 @@ class Friendship < ApplicationRecord
 
   validates :friended_user, presence: true
   # validates :user_id != :friended_user
+  # validate against duplicate pairings
 end
