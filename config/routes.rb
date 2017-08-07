@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   get '/users/hub/:id', to: 'users#hub', as: :hub
 
-  resources :friendships, only: [:create, :update, destroy]
+  resources :friendships, only: [:create, :update, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :quiz_responses, only: [:new, :create, :show]
   resources :congress_members, only: [:show]

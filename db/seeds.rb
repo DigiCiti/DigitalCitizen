@@ -53,3 +53,21 @@ responses_needed.times do
   response = Response.create(response_set)
 
 end
+
+
+max_friendships = 15
+friendships_needed = max_friendships - Friendship.count
+
+friendships_needed.times do
+  friendship_info = {}
+  friendship_info[:user_id] = rand(15)
+  request_recipient = rand(15)
+  until request_recipient != friendship_info[:user_id]
+    request_recipient = rand(15)
+  end
+  friendship_info[:friended_user] = request_recipient
+
+  friendship = Friendship.create(friendship_info)
+  # note this seeded data allows for possible duplicate frienships
+
+end
