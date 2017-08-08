@@ -1,0 +1,77 @@
+<div class="usa-grid usa-width-one-half" id="hub-container">
+  <h1 class="usa-header"><%= current_user.username %>'s Hub</h1>
+  <p>This project is in very early stages of development so there aren't many features yet.  This page will eventually serve as a central place for a user to manage their activities on the site.</p>
+  <p>Each of the sections below is a temporary placeholder for a feature of the hub page.  Some of them are semi-functional while others are merely just a note.</p>
+  <p>Please take a moment to explore them.</p>
+</div>
+
+<div class="usa-grid usa-width-one-third hub-section">
+  <h5>Connections</h5>
+  <hr>
+  <div class="hub-friend-sub-sec">
+    <p>Contact List:</p>
+    <% @friendships.each do |friendship| %>
+    <p><%= render partial: "friend_display", locals: {friendship: friendship} %></p>
+    <% end %>
+  </div>
+
+  <div class="hub-friend-sub-sec">
+    <p>Pending Contact Requests:</p>
+    <p class="notice"><%= notice %></p>
+    <% @pending_friendship_requests.each do |friendship| %>
+    <p><%= render partial: "friend_display", locals: {friendship: friendship} %>
+      - <%= link_to "Approve", friendship_path(friendship.id, status: "approved"), method: :put %>
+      | <%= link_to "Reject", friendship_path(friendship.id, status: "rejected"), method: :put %>
+    </p>
+    <% end %>
+  </div>
+
+  <div class="hub-friend-sub-sec">
+    <p>Sent Requests</p>
+    <% @sent_pend_friend_req.each do |friendship| %>
+      <p><%= render partial: "friend_display", locals: {friendship: friendship} %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="usa-grid usa-width-one-third hub-section">
+  <h5>Your Political Identity</h5>
+  <hr>
+  <p>Take a quiz to determine your political stance:</p>
+  <%= link_to "Take Quiz", '/quiz_responses/new' %>
+</div>
+
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Connect with Congress</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Post</p>
+  <p>Feed</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Debate</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Game</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Events</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Legislation</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>News</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Wiki</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Academia</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Petition</p>
+</div>
+<div class="usa-grid usa-width-one-third hub-section">
+  <p>Institutions</p>
+</div>
