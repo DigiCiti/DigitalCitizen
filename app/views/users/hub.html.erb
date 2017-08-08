@@ -8,23 +8,30 @@
 <div class="usa-grid usa-width-one-third hub-section">
   <h5>Connections</h5>
   <hr>
-  <p>Contact List:</p>
-  <% @friendships.each do |friendship| %>
+  <div class="hub-friend-sub-sec">
+    <p>Contact List:</p>
+    <% @friendships.each do |friendship| %>
     <p><%= render partial: "friend_display", locals: {friendship: friendship} %></p>
-  <% end %>
+    <% end %>
+  </div>
 
-  <p>Pending Contact Requests:</p>
-  <% @pending_friendship_requests.each do |friendship| %>
+  <div class="hub-friend-sub-sec">
+    <p>Pending Contact Requests:</p>
+    <p class="notice"><%= notice %></p>
+    <% @pending_friendship_requests.each do |friendship| %>
     <p><%= render partial: "friend_display", locals: {friendship: friendship} %>
-       - <%= link_to "Approve", friendship_path(@contact_id), method: :put %>
-       | <%= link_to "Reject", friendship_path(@contact_id), method: :delete %>
+      - <%= link_to "Approve", friendship_path(friendship.id, status: "approved"), method: :put %>
+      | <%= link_to "Reject", friendship_path(friendship.id, status: "rejected"), method: :put %>
     </p>
-  <% end %>
+    <% end %>
+  </div>
 
-  <p>Sent Requests</p>
-  <% @sent_pend_friend_req.each do |friendship| %>
-    <p><%= render partial: "friend_display", locals: {friendship: friendship} %></p>
-  <% end %>
+  <div class="hub-friend-sub-sec">
+    <p>Sent Requests</p>
+    <% @sent_pend_friend_req.each do |friendship| %>
+      <p><%= render partial: "friend_display", locals: {friendship: friendship} %></p>
+    <% end %>
+  </div>
 </div>
 
 <div class="usa-grid usa-width-one-third hub-section">

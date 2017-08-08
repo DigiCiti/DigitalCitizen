@@ -14,9 +14,9 @@ class UsersController < ApplicationController
   end
 
   def hub
-    @user = User.find(current_user.id)
-    @friendships = Friendship.where("user_id = '#{@user.id}'
-      or friended_user = '#{@user.id}'
+    @user = current_user
+    @friendships = Friendship.where("(user_id = '#{@user.id}'
+      or friended_user = '#{@user.id}')
       and status = 'approved'")
     @pending_friendship_requests = Friendship.where("friended_user = '#{@user.id}'
       and status = 'unanswered'")

@@ -5,7 +5,7 @@
     <!-- should refactor all to link_to -->
   <% if current_user %>
       <div id="nav-logged-user"><%= current_user.username %></div>
-      <a class="nav-item" href='/users/:id'>Profile</a></li>
+      <a class="nav-item" <%= link_to "Profile", "/users/#{current_user.id}" %></a></li>
       <a class="nav-item" <%= link_to "Logout", '/sessions/:id', method: "delete" %></a></li>
       <a class="nav-item" href='/users/hub/<%= current_user.id %>'>Hub</a></li>
   <% else %>
