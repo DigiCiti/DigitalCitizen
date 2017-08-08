@@ -14,14 +14,20 @@ class UsersController < ApplicationController
   end
 
   def hub
-    p '*' * 80
-    p params
-    @user = User.find(current_user.id)
+    @user = current_user
+    @friendships = Friendship.where("(user_id = '#{@user.id}'
+      or friended_user = '#{@user.id}')
+      and status = 'approved'")
+    @pending_friendship_requests = Friendship.where("friended_user = '#{@user.id}'
+      and status = 'unanswered'")
+    @sent_pend_friend_req = Friendship.where("user_id = '#{@user.id}'
+      and status = 'unanswered'")
+
     render 'users/hub'
   end
 
   def show
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
 
   private

@@ -31,6 +31,12 @@ body {
   background-attachment: fixed;
 }
 
+// --misc
+
+// .btn-text {
+//   color: rgb(255, 255, 255);
+// }
+
 // --nav
 
 #nav-container {
@@ -143,7 +149,7 @@ body {
 
 #hub-container {
   background-color: $l-blue-box;
-  // max-width: 500px;
+  // max-width: 500px;```
   // min-width: 400px;
   border-radius: 25px;
   height: 450px;
@@ -167,7 +173,13 @@ body {
   margin-bottom: 50px;
 }
 
-
+.hub-friend-sub-sec {
+  display: inline-block;
+  height: 360px;
+  width: 325px;
+  overflow: auto;
+  padding-left: 20px;
+}
 
 
 
