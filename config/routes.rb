@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :friendships, only: [:create, :update, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :quiz_responses, only: [:new, :create, :show]
-  resources :congress_members, only: [:show]
+  resources :congress_members, only: [:index, :show]
   # get '/congress_members/:id', to: 'congress_members#show'
 
   root 'users#new'
