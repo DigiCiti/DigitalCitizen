@@ -21,15 +21,16 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    p '*' * 80
-    p params
     @friendship = Friendship.find_by(id: params[:id])
     @friendship.update_attributes(status: params[:status])
-    if @friendship.save
+    if @friendship.status == "approved"
       flash[:notice] = "Friend request accepted"
+    elsif @friendship.status == "rejected"
+      flash[:notice] = "Friend request not accepted"
+    end
+    if @friendship.save
       redirect_back(fallback_location: root_path)
     else
-      flash[:notice] = "Friend request not accepted"
       redirect_back(fallback_location: root_path)
     end
   end
