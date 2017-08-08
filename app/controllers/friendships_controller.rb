@@ -1,11 +1,10 @@
 class FriendshipsController < ApplicationController
 
   def create
-    # if it has already been created and approved return message saying so
-    # if already created and rejected or unanswered reroute it to update for
-      # update of timestamp reordering or alteration of status from rejected
-      # to unanswered
-    if friend?
+    # consider... if already created and rejected or unanswered, reroute it to
+      # update route for update of timestamp reordering or alteration of
+      # status from rejected to unanswered
+    if friend?(params[:add_id])
       flash[:notice] = "You've already sent a request to this user"
       redirect_back(fallback_location: root_path)
     else
@@ -21,15 +20,16 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    p '*' * 80
-    p params
     @friendship = Friendship.find_by(id: params[:id])
     @friendship.update_attributes(status: params[:status])
-    if @friendship.save
+    if @friendship.status == "approved"
       flash[:notice] = "Friend request accepted"
+    elsif @friendship.status == "rejected"
+      flash[:notice] = "Friend request not accepted"
+    end
+    if @friendship.save
       redirect_back(fallback_location: root_path)
     else
-      flash[:notice] = "Friend request not accepted"
       redirect_back(fallback_location: root_path)
     end
   end
@@ -40,24 +40,6 @@ class FriendshipsController < ApplicationController
   #   p '*' * 80
   #   p params
   # end
-
-  private
-
-  def friend?
-    # found_frienship = Friendship.find_by (user_id: params[:id] || friended_user: params[:id]) && (friended_user:)
-    @friendships = Friendship.where("(user_id = '#{current_user.id}'
-      or friended_user = '#{current_user.id}')
-      and status = 'approved'")
-    # @friendships = @friendships.where("status = 'approved'")
-
-    # @found_frienship = []
-    @friendships.each do |friendship|
-      if friendship.user_id == params[:id] || friendship.friended_user == params[:id]
-        return true
-      end
-    end
-    false
-  end
 
 end
 
