@@ -39,6 +39,16 @@
   <hr>
   <p>Take a quiz to determine your political stance:</p>
   <%= link_to "Take Quiz", '/quiz_responses/new' %>
+
+  <p>Your past quiz results:</p>
+  <% count = 0 %>
+  <% @user.responses.each do |response| %>
+    <% count += 1 %>
+    <p>Quiz <%= count %> had a result of: "<%= response.quiz_result %>"</p>
+  <% end %>
+  <% if count == 0 %>
+    <p>Complete the quiz at least once to see results.</p>
+  <% end %>
 </div>
 
 <div class="usa-grid usa-width-one-third hub-section">
