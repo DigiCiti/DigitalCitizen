@@ -1,11 +1,12 @@
 require 'uri'
 require 'net/http'
 require 'openssl'
+require 'json'
 
-class Congress < ApplicationRecord
+class CongressMember
 
-  def initialize
-    url = URI("https://api.propublica.org/congress/v1/115/house/members.json")
+  def initialize(branch)
+    url = URI("https://api.propublica.org/congress/v1/115/#{branch}/members.json")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -17,11 +18,10 @@ class Congress < ApplicationRecord
     request["postman-token"] = ENV['PROPUBLICA_POSTMAN_TOKEN']
 
     response = http.request(request)
-    pre_parse = response.read_body
-    @house_members_115 = JSON.parse(pre_parse)
+    p @house_members_115 = JSON.parse(response.read_body)
   end
 
-  def get_member_full_info(full_name, state)
+  def get_members_full_info(full_name, state)
     member_full_details = @house_members_115["results"][0]["members"]
     found_member = []
     member_full_details.each do |member|
@@ -33,11 +33,12 @@ class Congress < ApplicationRecord
     found_member
   end
 
-  def get_basic_member_details
+  def get_members_basic_details
     house_members_115_details = @house_members_115["results"][0]["members"]
     member_basics_hashes = []
     house_members_115_details.each_with_index do |member, i|
       house_member = {}
+      house_member[:state] = house_members_115_details[i]["id"]
       house_member[:full_name] = house_members_115_details[i]["first_name"] + " #{house_members_115_details[i]["last_name"]}"
       house_member[:state] = house_members_115_details[i]["state"]
       house_member[:party] = house_members_115_details[i]["party"]
@@ -49,7 +50,7 @@ class Congress < ApplicationRecord
 
   def get_member_basic_info(full_name, state)
     found_member = {}
-    self.get_basic_member_details.each do |member|
+    self.get_members_basic_details.each do |member|
       if full_name == member[:full_name] && state == member[:state]
         found_member = member
       end
