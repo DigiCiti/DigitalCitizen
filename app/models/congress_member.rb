@@ -4,9 +4,18 @@ require 'openssl'
 require 'json'
 
 class CongressMember
+  attr_accessor :endpoint, :branch, :member_id
 
-  def initialize(branch)
-    url = URI("https://api.propublica.org/congress/v1/115/#{branch}/members.json")
+  def initialize(args = {})
+    @endpoint = args.fetch(:endpoint, "n/a")
+    @branch = args.fetch(:branch, "n/a")
+    @member_id = args.fetch(:member_id, "n/a")
+
+    if @endpoint == "member_list"
+      url = URI("https://api.propublica.org/congress/v1/115/#{@branch}/members.json")
+    elsif @endpoint == "find_member"
+      url = URI("https://api.propublica.org/congress/v1/members/#{@member_id}.json")
+    end
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -18,23 +27,23 @@ class CongressMember
     request["postman-token"] = ENV['PROPUBLICA_POSTMAN_TOKEN']
 
     response = http.request(request)
-    p @house_members_115 = JSON.parse(response.read_body)
+    @parsed_response = JSON.parse(response.read_body)
   end
 
-  def get_members_full_info(full_name, state)
-    member_full_details = @house_members_115["results"][0]["members"]
-    found_member = []
-    member_full_details.each do |member|
-      member_full_name = "#{member["first_name"]}" + " #{member["last_name"]}"
-      if full_name == member_full_name && state == member["state"]
-        found_member = member
-      end
-    end
-    found_member
-  end
+  # def get_members_full_info(full_name, state)
+  #   member_full_details = @parsed_response["results"][0]["members"]
+  #   found_member = []
+  #   member_full_details.each do |member|
+  #     member_full_name = "#{member["first_name"]}" + " #{member["last_name"]}"
+  #     if full_name == member_full_name && state == member["state"]
+  #       found_member = member
+  #     end
+  #   end
+  #   found_member
+  # end
 
   def get_members_basic_details
-    house_members_115_details = @house_members_115["results"][0]["members"]
+    house_members_115_details = @parsed_response["results"][0]["members"]
     member_basics_hashes = []
     house_members_115_details.each_with_index do |member, i|
       house_member = {}

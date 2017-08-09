@@ -28,9 +28,9 @@ class UsersController < ApplicationController
     @sent_pend_friend_req = Friendship.where("user_id = '#{@user.id}'
       and status = 'unanswered'")
 
-    @house_members = CongressMember.new("house")
+    @house_members = CongressMember.new(endpoint: "member_list", branch: "house")
     @house_members = @house_members.get_members_basic_details
-    @senate_members = CongressMember.new("senate")
+    @senate_members = CongressMember.new(endpoint: "member_list", branch: "senate")
     @senate_members = @senate_members.get_members_basic_details
 
     render 'users/hub'
