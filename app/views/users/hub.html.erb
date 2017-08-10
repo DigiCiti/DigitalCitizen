@@ -16,7 +16,7 @@
   </div>
 
   <div class="hub-friend-sub-sec">
-    <p>Pending Contact Requests:</p>
+    <p>Received Requests:</p>
     <p class="notice"><%= notice %></p>
     <% @pending_friendship_requests.each do |friendship| %>
     <p><%= render partial: "friend_display", locals: {friendship: friendship} %>

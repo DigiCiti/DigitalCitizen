@@ -42,29 +42,33 @@ class CongressMember
   #   found_member
   # end
 
-  def get_members_basic_details
-    house_members_115_details = @parsed_response["results"][0]["members"]
+  def members_basic_details
+    members_115_details = @parsed_response["results"][0]["members"]
     member_basics_hashes = []
-    house_members_115_details.each_with_index do |member, i|
-      house_member = {}
-      house_member[:id] = house_members_115_details[i]["id"]
-      house_member[:full_name] = house_members_115_details[i]["first_name"] + " #{house_members_115_details[i]["last_name"]}"
-      house_member[:state] = house_members_115_details[i]["state"]
-      house_member[:party] = house_members_115_details[i]["party"]
-      house_member[:votes_with_party_pct] = house_members_115_details[i]["votes_with_party_pct"]
-      member_basics_hashes << house_member
+    members_115_details.each_with_index do |member, i|
+      member = {}
+      member[:id] = members_115_details[i]["id"]
+      member[:full_name] = members_115_details[i]["first_name"] + " #{members_115_details[i]["last_name"]}"
+      member[:state] = members_115_details[i]["state"]
+      member[:party] = members_115_details[i]["party"]
+      member[:votes_with_party_pct] = members_115_details[i]["votes_with_party_pct"]
+      member_basics_hashes << member
     end
     member_basics_hashes
   end
 
-  def get_member_basic_info(full_name, state)
-    found_member = {}
-    self.get_members_basic_details.each do |member|
-      if full_name == member[:full_name] && state == member[:state]
-        found_member = member
-      end
-    end
-    found_member
+
+  def single_member_details
+    member_details = @parsed_response["results"][0]
   end
 
+  # def get_member_basic_info(full_name, state)
+  #   found_member = {}
+  #   self.members_basic_details.each do |member|
+  #     if full_name == member[:full_name] && state == member[:state]
+  #       found_member = member
+  #     end
+  #   end
+  #   found_member
+  # end
 end

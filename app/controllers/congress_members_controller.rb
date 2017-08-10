@@ -4,7 +4,7 @@ class CongressMembersController < ApplicationController
     p '*' * 80
     p params[:member_id]
     @single_member = CongressMember.new(endpoint: "find_member", member_id: params[:member_id])
-    p @single_member
+    p @member = @single_member.single_member_details
   end
 
 end

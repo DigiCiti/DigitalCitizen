@@ -1,3 +1,14 @@
-<h2>hi</h2>
-
-<%= @single_member.id %>
+<div class="usa-grid usa-width-one-third" id="cong-mem-profile-container">
+  <h2><%= "#{@member["first_name"]} #{@member["last_name"]}" %></h2>
+  <img src="https://theunitedstates.io/images/congress/225x275/<%= @member["member_id"] %>.jpg" alt="">
+  <div id="cong-mem-basics-container">
+    <p>State: <%= @member["roles"][0]["state"] %></p>
+    <p>Party: <%= @member["roles"][0]["party"] %></p>
+    <p>District: <%= @member["roles"][0]["district"] %></p>
+    <p>Phone: <%= @member["roles"][0]["phone"] %></p>
+    <!-- refactor to link_to for consistency... -->
+    <p>House Profile: <a href="<%= @member["url"] %>" target="_blank"><%= @member["url"] %></a></p>
+    <p>Facebook: <a href="https://www.facebook.com/<%= @member["facebook_account"] %>" target="_blank"><%= @member["facebook_account"] %></a></p>
+    <p>Twitter: <a href="https://twitter.com/<%= @member["twitter_account"] %>" target="_blank"><%= @member["twitter_account"] %></a></p>
+  </div>
+</div>
