@@ -47,7 +47,7 @@ class CongressMember
     member_basics_hashes = []
     house_members_115_details.each_with_index do |member, i|
       house_member = {}
-      house_member[:state] = house_members_115_details[i]["id"]
+      house_member[:id] = house_members_115_details[i]["id"]
       house_member[:full_name] = house_members_115_details[i]["first_name"] + " #{house_members_115_details[i]["last_name"]}"
       house_member[:state] = house_members_115_details[i]["state"]
       house_member[:party] = house_members_115_details[i]["party"]

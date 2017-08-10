@@ -57,14 +57,20 @@
     <p>Senate</p>
     <p>Name(sorted by last) - State - Party - % Voting with Party</p>
     <% @senate_members.each do |member| %>
-      <p><a href="/congress_members/show"><%= "#{member[:full_name]} - #{member[:state]} - #{member[:party]} - #{member[:votes_with_party_pct]}" %></a></p>
+      <p><%= link_to "#{member[:full_name]}", congress_member_path(member_id: member[:id]) %>
+         - <%= "#{member[:state]} - #{member[:party]} -
+         #{member[:votes_with_party_pct]} - #{member[:id]}" %>
+      </p>
     <% end %>
   </div>
   <div class="hub-c-member-sub-sec">
     <p>House</p>
     <p>Name(sorted by last) - State - Party - % Voting with Party</p>
     <% @house_members.each do |member| %>
-      <p><a href="/congress_members/show"><%= "#{member[:full_name]} - #{member[:state]} - #{member[:party]} - #{member[:votes_with_party_pct]}" %></a></p>
+      <p><%= link_to "#{member[:full_name]}", congress_member_path(member_id: member[:id]) %>
+         - <%= "#{member[:state]} - #{member[:party]} -
+         #{member[:votes_with_party_pct]}" %>
+      </p>
     <% end %>
   </div>
 </div>
