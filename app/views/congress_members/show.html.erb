@@ -4,7 +4,9 @@
   <div id="cong-mem-basics-container">
     <p>State: <%= @member["roles"][0]["state"] %></p>
     <p>Party: <%= @member["roles"][0]["party"] %></p>
-    <p>District: <%= @member["roles"][0]["district"] %></p>
+    <% if @member["roles"][0]["district"] %>
+      <p>District: <%= @member["roles"][0]["district"] %></p>
+    <% end %>
     <p>Phone: <%= @member["roles"][0]["phone"] %></p>
     <!-- refactor to link_to for consistency... -->
     <p>House Profile: <a href="<%= @member["url"] %>" target="_blank"><%= @member["url"] %></a></p>
