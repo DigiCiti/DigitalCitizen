@@ -13,4 +13,9 @@
     <p>Facebook: <a href="https://www.facebook.com/<%= @member["facebook_account"] %>" target="_blank"><%= @member["facebook_account"] %></a></p>
     <p>Twitter: <a href="https://twitter.com/<%= @member["twitter_account"] %>" target="_blank"><%= @member["twitter_account"] %></a></p>
   </div>
+  <div class="profile-item-container">
+    <p>Stats/Info</p>
+      <p>Bills Sponsored: <%= @member["roles"][0]["bills_sponsored"] %></p>
+    <p>Commitees:</p>
+  </div>
 </div>
