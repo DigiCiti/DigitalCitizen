@@ -13,4 +13,24 @@
     <p>Facebook: <a href="https://www.facebook.com/<%= @member["facebook_account"] %>" target="_blank"><%= @member["facebook_account"] %></a></p>
     <p>Twitter: <a href="https://twitter.com/<%= @member["twitter_account"] %>" target="_blank"><%= @member["twitter_account"] %></a></p>
   </div>
+  <div id="member-profile-stats">
+    <% if @member["roles"][0]["leadership_role"] != nil %>
+      <p>Leadership Role: <%= @member["roles"][0]["leadership_role"] %></p>
+    <% end %>
+    <p>Bills Sponsored: <%= @member["roles"][0]["bills_sponsored"] %></p>
+    <p>Bills Cosponsored: <%= @member["roles"][0]["bills_cosponsored"] %></p>
+    <p>Missed Votes %: <%= @member["roles"][0]["missed_votes_pct"] %></p>
+    <p>Votes with Party %: <%= @member["roles"][0]["votes_with_party_pct"] %></p>
+  </div>
+  <div class="profile-item-container">
+    <p>Commitees:
+      <% if @member["roles"][0]["committees"].count == 0 %>
+        <%= "None" %>
+      <% else %>
+        <% @member["roles"][0]["committees"].each do |committee| %>
+          <p><%= committee["name"] %></p>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
 </div>
