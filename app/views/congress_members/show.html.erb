@@ -22,7 +22,8 @@
     <p>Missed Votes %: <%= @member["roles"][0]["missed_votes_pct"] %></p>
     <p>Votes with Party %: <%= @member["roles"][0]["votes_with_party_pct"] %></p>
   </div>
-  <div class="profile-item-container">
+  <hr>
+  <div class="profile-item-cont">
     <p>Commitees:
       <% if @member["roles"][0]["committees"].count == 0 %>
         <%= "None" %>
@@ -33,4 +34,15 @@
       <% end %>
     </p>
   </div>
+  <hr>
+  <div id="member-votes-cont">
+    <p>Recent Vote Positions:</p>
+    <% @member_vote_positions["votes"].each do |vote| %>
+      <p>----------------------------------------------------</p>
+      <p>Description: <%= vote["description"] %></p>
+      Title: <%= vote["bill"]["title"] %>
+      <p>Vote: <%= vote["position"] %></p>
+    <% end %>
+  </div>
+  <hr>
 </div>

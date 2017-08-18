@@ -15,6 +15,8 @@ class CongressMember
       url = URI("https://api.propublica.org/congress/v1/115/#{@branch}/members.json")
     elsif @endpoint == "find_member"
       url = URI("https://api.propublica.org/congress/v1/members/#{@member_id}.json")
+    elsif @endpoint == "member_positions"
+      url = URI("https://api.propublica.org/congress/v1/members/#{@member_id}/votes.json")
     end
 
     http = Net::HTTP.new(url.host, url.port)
