@@ -210,9 +210,15 @@ body {
   }
 }
 
-.profile-item-container {
+#member-profile-stats {
   width: 325px;
-  
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.profile-item-container {
+  width: 875px;
+  display: block;
 }
 
 
