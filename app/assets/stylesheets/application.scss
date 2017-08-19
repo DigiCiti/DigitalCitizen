@@ -194,7 +194,7 @@ body {
 #cong-mem-profile-container {
   background-color: $l-blue-box;
   border-radius: 25px;
-  height: 950px;
+  height: 2000px;
   padding: 1px 20px 20px 20px;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -216,11 +216,17 @@ body {
   margin-left: 20px;
 }
 
-.profile-item-container {
-  width: 875px;
+.profile-item-cont {
+  width: 975px;
   display: block;
 }
 
+#member-votes-cont {
+  overflow-y: auto;
+  max-width: 975px;
+  height: 500px;
+  display: block;
+}
 
 
 
