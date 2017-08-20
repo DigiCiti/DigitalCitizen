@@ -1,3 +1,7 @@
+require 'uri'
+require 'net/http'
+require 'openssl'
+
 class UsersController < ApplicationController
 
   def new
@@ -15,6 +19,7 @@ class UsersController < ApplicationController
 
   def hub
     @user = current_user
+
     @friendships = Friendship.where("(user_id = '#{@user.id}'
       or friended_user = '#{@user.id}')
       and status = 'approved'")
@@ -22,6 +27,12 @@ class UsersController < ApplicationController
       and status = 'unanswered'")
     @sent_pend_friend_req = Friendship.where("user_id = '#{@user.id}'
       and status = 'unanswered'")
+      
+    # members are not currently sorted by alpha order beyond their last initial
+    @house_members = CongressMember.new(endpoint: "member_list", branch: "house")
+    @house_members = @house_members.members_basic_details
+    @senate_members = CongressMember.new(endpoint: "member_list", branch: "senate")
+    @senate_members = @senate_members.members_basic_details
 
     render 'users/hub'
   end

@@ -1,11 +1,6 @@
 <h3>Welcome <%= @user.username %></h3>
-<% count = 0 %>
-<% @user.responses.each do |response| %>
-  <% count += 1 %>
-  <p>Quiz <%= count %> had a result of: <%= response.quiz_result %></p>
-<% end %>
 
-<% if @user.id != current_user.id %> <!-- add || statement for case of already being friends-->
+<% if @user.id != current_user.id && !friend?(@user.id) %>
   <%= link_to "Add Friend", friendships_path(add_id: @user.id), method: :post %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>

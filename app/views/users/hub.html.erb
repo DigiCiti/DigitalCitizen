@@ -16,7 +16,7 @@
   </div>
 
   <div class="hub-friend-sub-sec">
-    <p>Pending Contact Requests:</p>
+    <p>Received Requests:</p>
     <p class="notice"><%= notice %></p>
     <% @pending_friendship_requests.each do |friendship| %>
     <p><%= render partial: "friend_display", locals: {friendship: friendship} %>
@@ -39,39 +39,79 @@
   <hr>
   <p>Take a quiz to determine your political stance:</p>
   <%= link_to "Take Quiz", '/quiz_responses/new' %>
+
+  <p>Your past quiz results:</p>
+  <% count = 0 %>
+  <% @user.responses.each do |response| %>
+    <% count += 1 %>
+    <p>Quiz <%= count %> had a result of: "<%= response.quiz_result %>"</p>
+  <% end %>
+  <% if count == 0 %>
+    <p>Complete the quiz at least once to see results.</p>
+  <% end %>
 </div>
 
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Connect with Congress</p>
+  <div class="hub-c-member-sub-sec">
+    <p>Senate</p>
+    <p>Name(sorted by last) - State - Party - %Voting with Party</p>
+    <% @senate_members.each do |member| %>
+      <p><%= link_to "#{member[:full_name]}", congress_member_path(member_id: member[:id]) %>
+         - <%= "#{member[:state]} - #{member[:party]} -
+         #{member[:votes_with_party_pct]}" %>
+      </p>
+    <% end %>
+  </div>
+  <div class="hub-c-member-sub-sec">
+    <p>House</p>
+    <p>Name(sorted by last) - State - Party - %Voting with Party</p>
+    <% @house_members.each do |member| %>
+      <p><%= link_to "#{member[:full_name]}", congress_member_path(member_id: member[:id]) %>
+         - <%= "#{member[:state]} - #{member[:party]} -
+         #{member[:votes_with_party_pct]}" %>
+      </p>
+    <% end %>
+  </div>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Post</p>
   <p>Feed</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Debate</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Game</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Events</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Legislation</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>News</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Wiki</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Academia</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Petition</p>
 </div>
+
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Institutions</p>
 </div>
