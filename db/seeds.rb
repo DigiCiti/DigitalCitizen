@@ -21,6 +21,8 @@ users_needed.times do
 
 end
 
+User.create(username: "MikeT", email: "m@m.com", password: "pass")
+
 max_quizzes = 15
 quizzes_needed = max_quizzes - Quiz.count
 
@@ -55,12 +57,13 @@ responses_needed.times do
 end
 
 
-max_friendships = 15
+max_friendships = 100
 friendships_needed = max_friendships - Friendship.count
 
 friendships_needed.times do
   friendship_info = {}
   friendship_info[:user_id] = rand(15)
+  friendship_info[:status] = ["approved", "unanswered"].sample
   request_recipient = rand(15)
   until request_recipient != friendship_info[:user_id]
     request_recipient = rand(15)
@@ -70,4 +73,12 @@ friendships_needed.times do
   friendship = Friendship.create(friendship_info)
   # note this seeded data allows for possible duplicate frienships
 
+end
+
+15.times do
+  Friendship.create(user_id: 16, friended_user:rand(15), status: ["approved", "unanswered"].sample)
+end
+
+15.times do
+  Friendship.create(user_id: rand(15), friended_user: 16, status: ["approved", "unanswered"].sample)
 end
