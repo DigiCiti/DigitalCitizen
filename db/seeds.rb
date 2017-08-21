@@ -62,11 +62,11 @@ friendships_needed = max_friendships - Friendship.count
 
 friendships_needed.times do
   friendship_info = {}
-  friendship_info[:user_id] = rand(15)
+  friendship_info[:user_id] = rand(1..15)
   friendship_info[:status] = ["approved", "unanswered"].sample
-  request_recipient = rand(15)
+  request_recipient = rand(1..15)
   until request_recipient != friendship_info[:user_id]
-    request_recipient = rand(15)
+    request_recipient = rand(1..15)
   end
   friendship_info[:friended_user] = request_recipient
 
@@ -76,9 +76,9 @@ friendships_needed.times do
 end
 
 15.times do
-  Friendship.create(user_id: 16, friended_user:rand(15), status: ["approved", "unanswered"].sample)
+  Friendship.create(user_id: 16, friended_user:rand(1..15), status: ["approved", "unanswered"].sample)
 end
 
 15.times do
-  Friendship.create(user_id: rand(15), friended_user: 16, status: ["approved", "unanswered"].sample)
+  Friendship.create(user_id: rand(1..15), friended_user: 16, status: ["approved", "unanswered"].sample)
 end
