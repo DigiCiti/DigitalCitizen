@@ -8,10 +8,10 @@ Sample landing page:
 ![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2016-29-08.png?raw=true)
 
 Image sample of quiz for determining ones political stance:
-![Sample Image](https://github.com/MikeTarkington/passion-project/blob/master/Screenshot%20from%202017-07-27%2020-39-11.png?raw=true)
+![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2018-17-22.png?raw=true)
 
 Top of user Hub page showing friend request capability:
-![Sample Image](https://github.com/MikeTarkington/passion-project/blob/master/Screenshot%20from%202017-07-27%2020-39-11.png?raw=true)
+![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2018-04-23.png?raw=true)
 
 Draft features on Hub page for political opinion quiz and connecting with congress member profiles:
 ![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2018-03-38.png?raw=true)
