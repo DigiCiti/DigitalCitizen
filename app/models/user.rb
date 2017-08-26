@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :friendships
-
+  has_many :entries
   has_many :responses
   has_many :quizzes, through: :responses, source: :quiz_id
 
