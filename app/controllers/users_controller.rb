@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       and status = 'unanswered'")
     @sent_pend_friend_req = Friendship.where("user_id = '#{@user.id}'
       and status = 'unanswered'")
-      
+
     # members are not currently sorted by alpha order beyond their last initial
     @house_members = CongressMember.new(endpoint: "member_list", branch: "house")
     @house_members = @house_members.members_basic_details
@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Entry.where("user_id = '#{@user.id}' and entry_type = 'profile_post'")
   end
 
   private

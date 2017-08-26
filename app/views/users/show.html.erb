@@ -5,3 +5,9 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <% end %>
+
+<% @posts.each do |post| %>
+  <p><%= post.title %></p>
+  <p><%= post.body %></p>
+  <p><%= post.created_at %></p>
+<% end %>
