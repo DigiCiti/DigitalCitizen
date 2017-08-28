@@ -228,6 +228,42 @@ body {
   display: block;
 }
 
+// --user profile pages
+
+#profile-page-main-cont {
+  background-color: $l-blue-box;
+  border-radius: 25px;
+  height: 2000px;
+  padding: 1px 20px 20px 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#profile-posts-cont {
+  background-color: rgba(124, 189, 255, 0.3);
+  overflow-y: auto;
+  max-width: 975px;
+  height: 500px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 1px 20px 20px 20px;
+}
+
+#profile-post-form-cont {
+  
+}
+
+.profile-post-cont {
+  max-width: 975px;
+  height: 150px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1px 20px 20px 20px;
+  border-radius: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 
 

@@ -1,13 +1,34 @@
-<h3>Welcome <%= @user.username %></h3>
+<div class="usa-grid usa-width-one-half" id="profile-page-main-cont">
+  <h3><%= @user.username %></h3>
 
-<% if @user.id != current_user.id && !friend?(@user.id) %>
-  <%= link_to "Add Friend", friendships_path(add_id: @user.id), method: :post %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<% end %>
+  <% if @user.id != current_user.id && !friend?(@user.id) %>
+    <%= link_to "Add Friend", friendships_path(add_id: @user.id), method: :post %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  <% end %>
 
-<% @posts.each do |post| %>
-  <p><%= post.title %></p>
-  <p><%= post.body %></p>
-  <p><%= post.created_at %></p>
-<% end %>
+  <% if @user.id == current_user.id %>
+    <div id="profile-post-form-cont">
+      <%= flash[:notice] %>
+      <%= flash[:error] %>
+      <%= form_tag '/entries' do %>
+
+        Title(optional): <%= text_field_tag :title %><br>
+        Body: <%= text_field_tag :body %>
+        <%= hidden_field_tag :entry_type, "profile_post" %>
+        <%= submit_tag "Submit" %>
+
+      <% end %>
+    </div>
+  <% end %>
+
+  <div id="profile-posts-cont">
+    <% @posts.each do |post| %>
+    <div class="profile-post-cont">
+      <p><%= post.title %></p>
+      <p><%= post.body %></p>
+      <p><%= post.created_at %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
