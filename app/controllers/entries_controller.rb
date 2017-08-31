@@ -18,4 +18,26 @@ class EntriesController < ApplicationController
     redirect_to controller: 'users', action: 'show', id: current_user.id
   end
 
+  def edit
+    render 'entries/_edit'
+  end
+
+  def update
+    entry = Entry.find(params[:id])
+    entry.title = params[:title]
+    entry.body = params[:body]
+    if entry.save
+      redirect_to controller: 'users', action: 'show', id: current_user.id
+    else
+      flash[:error] = entry.errors.full_messages
+      redirect_to controller: 'entries', action: 'edit', post: entry.id
+    end
+  end
+
+  def destroy
+    entry = Entry.find(params[:id])
+    entry.destroy
+    redirect_to controller: 'users', action: 'show', id: current_user.id
+  end
+
 end

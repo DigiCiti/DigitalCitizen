@@ -41,6 +41,9 @@ body {
 
 #nav-container {
   background-color: rgba(255, 255, 255, 0.6);
+  position: fixed;
+  width: 100%;
+  top: 0px;
 }
 
 #navbar {
@@ -85,7 +88,7 @@ body {
   display: block;
   text-align: center;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 130px;
   margin-bottom: 50px;
 }
 
@@ -122,7 +125,7 @@ body {
   padding: 20px 20px 20px 20px;
   display: block;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 130px;
   margin-bottom: 50px;
 }
 
@@ -135,7 +138,7 @@ body {
   padding: 20px 20px 20px 20px;
   display: block;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 130px;
   margin-bottom: 50px;
 }
 
@@ -156,7 +159,7 @@ body {
   padding: 1px 20px 20px 20px;
   // display: block;
   // margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 130px;
   margin-bottom: 50px;
 }
 
@@ -196,7 +199,7 @@ body {
   border-radius: 25px;
   height: 2000px;
   padding: 1px 20px 20px 20px;
-  margin-top: 50px;
+  margin-top: 130px;
   margin-bottom: 50px;
 }
 
@@ -235,7 +238,7 @@ body {
   border-radius: 25px;
   height: 2000px;
   padding: 1px 20px 20px 20px;
-  margin-top: 50px;
+  margin-top: 130px;
   margin-bottom: 50px;
 }
 
@@ -251,7 +254,7 @@ body {
 }
 
 #profile-post-form-cont {
-  
+
 }
 
 .profile-post-cont {
@@ -265,6 +268,11 @@ body {
   margin-bottom: 10px;
 }
 
+#profile-post-edit-cont {
+  float: right;
+  display: inline-block;
+  margin-left: 20px;
+}
 
 
 // Ported CSS from Sinatra version that will probably not be needed
