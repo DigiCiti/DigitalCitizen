@@ -8,6 +8,7 @@
 
 require 'faker'
 
+# SEEDING USERS
 max_users = 15
 users_needed = max_users - User.count
 
@@ -23,6 +24,7 @@ end
 
 User.create(username: "MikeT", email: "m@m.com", password: "pass")
 
+# SEEDING BASE QUIZ
 max_quizzes = 15
 quizzes_needed = max_quizzes - Quiz.count
 
@@ -38,6 +40,7 @@ quizzes_needed.times do
 
 end
 
+# SEEDING QUIZ RESPONSES
 max_responses = 15
 responses_needed = max_responses - Response.count
 
@@ -56,7 +59,7 @@ responses_needed.times do
 
 end
 
-
+# SEEDING FRIENDSHIPS
 max_friendships = 100
 friendships_needed = max_friendships - Friendship.count
 
@@ -81,4 +84,23 @@ end
 
 15.times do
   Friendship.create(user_id: rand(1..15), friended_user: 16, status: ["approved", "unanswered"].sample)
+end
+
+# SEEDING ENTRIES
+max_entries = 50
+entries_needed = max_entries - Entry.count
+
+entries_needed.times do
+  entry_data = {}
+  entry_data[:user_id] = rand(1..15)
+  entry_data[:title] = Faker::StarWars.planet
+  entry_data[:body] = Faker::Lorem.paragraph
+  entry_data[:entry_type] = ["profile_post", "memo", "group_page"].sample
+
+  Entry.create(entry_data)
+end
+
+
+30.times do
+  Entry.create(user_id: 16, title: Faker::GameOfThrones.character, body: Faker::ChuckNorris.fact, entry_type: ["profile_post", "memo", "group_page"].sample)
 end

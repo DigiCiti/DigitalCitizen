@@ -6,4 +6,9 @@ module SessionsHelper
   def authorize
     redirect_to '/' unless current_user
   end
+
+  # def signed_in?
+  #
+  # end
+
 end
