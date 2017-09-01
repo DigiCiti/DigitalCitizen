@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     else
       if comment.save
         flash[:notice] = "Your comment was saved!"
-        redirect_to controller: 'users', action: 'show', id: current_user.id
+        redirect_to controller: 'users', action: 'show', id: params[:entry_user_id]
       else
         flash[:error] = comment.errors.full_messages
         redirect_to controller: 'comments', action: 'new', format: params[:commentable_id]
