@@ -22,13 +22,22 @@
 // google font
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-$l-blue-box: rgba(182, 232, 250, 0.8);
+$l-blue-box: rgb(182, 232, 250);
 
+/* sets base style of background image for each page */
 body {
-  background: image-url("uscapitol.jpg");
-  background-color: rgb(182, 232, 250);
+  background-color: rgb(162, 213, 255);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* set background image per page */
+.auth-bg {
+  background: image-url("uscapitol.jpg");
 }
 
 // --misc
@@ -40,10 +49,17 @@ body {
 // --nav
 
 #nav-container {
-  background-color: rgba(255, 255, 255, 0.6);
+  height: 101px;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(90deg, red, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(90deg, red, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(90deg, red, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(90deg, white, $l-blue-box); /* Standard syntax (must be last) */
   position: fixed;
   width: 100%;
   top: 0px;
+  -moz-box-shadow: 0 0 30px 5px #999;
+  -webkit-box-shadow: 0 0 30px 5px #999;
 }
 
 #navbar {
@@ -244,7 +260,7 @@ body {
 }
 
 #profile-posts-cont {
-  background-color: rgba(124, 189, 255, 0.3);
+  background-color: rgb(124, 189, 255);
   max-width: 975px;
   min-height: 500px;
   overflow: hidden;
@@ -255,7 +271,9 @@ body {
 }
 
 #profile-post-form-cont {
-
+  width: 500px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .profile-post-cont {
@@ -263,10 +281,11 @@ body {
   min-height: 100px;
   overflow: hidden;
   display: block;
-  background-color: rgba(255, 255, 255, 0.3a);
+  background-color: rgb(255, 255, 255);
   padding: 1px 20px 20px 20px;
   border-radius: 5px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #profile-post-edit-cont {
@@ -277,11 +296,12 @@ body {
 }
 
 .profile-post-comment-cont {
-  height: 60px;
+  min-height: 60px;
+  overflow: hidden;
   max-width: 900px;
-  background-color: rgba(226, 226, 226, 0.6);
+  background-color: rgb(226, 226, 226);
   display: block;
-  margin-top: 3px;
+  margin-bottom: 3px;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;

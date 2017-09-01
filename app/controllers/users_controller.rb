@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = Entry.where("user_id = '#{@user.id}' and entry_type = 'profile_post'").last(20)
+    @posts = Entry.where("user_id = '#{@user.id}' and entry_type = 'profile_post'").last(10)
     # need to setup offset for pagination or additional posts to load on scroll
     @posts = @posts.sort_by &:created_at
     @posts = @posts.reverse
