@@ -7,8 +7,8 @@ module SessionsHelper
     redirect_to '/' unless current_user
   end
 
-  # def signed_in?
-  #
-  # end
+  def signed_in?
+    current_user != nil
+  end
 
 end
