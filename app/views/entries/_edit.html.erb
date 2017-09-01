@@ -1,9 +1,9 @@
-<div class="profile-post-edit-form-cont">
+<div class="usa-grid profile-post-edit-form-cont">
   <%= flash[:notice] %>
   <%= flash[:error] %>
   <%= form_tag entry_path, method: :put do %>
-    Title(optional): <%= text_field_tag :title %><br>
-    Body: <%= text_area_tag :body %>
+    Title(optional): <%= text_field_tag :title, @post.title %><br>
+    Body: <%= text_area_tag :body, @post.body %>
     <%= submit_tag "Update" %>
   <% end %>
 </div>

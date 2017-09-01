@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :quiz_responses, only: [:new, :create, :show]
   resources :congress_members, only: [:index, :show]
   resources :entries, only: [:create, :edit, :update, :destroy]
+  resources :comments, only: [:new, :create, :edit, :update, :destroy]
   # get '/congress_members/:id', to: 'congress_members#show'
 
   root 'users#new'

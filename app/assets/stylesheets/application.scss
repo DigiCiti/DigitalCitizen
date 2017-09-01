@@ -309,6 +309,34 @@ body {
   border-radius: 5px;
 }
 
+.profile-post-edit-form-cont {
+  margin-top: 130px;
+  width: 480px;
+  min-height: 200px;
+  overflow:hidden;
+  background-color: $l-blue-box;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+.profile-comment-form-cont {
+  margin-top: 130px;
+  width: 480px;
+  min-height: 200px;
+  overflow:hidden;
+  background-color: $l-blue-box;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
 
 // Ported CSS from Sinatra version that will probably not be needed
  // #member-list {

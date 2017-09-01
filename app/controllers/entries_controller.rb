@@ -19,6 +19,9 @@ class EntriesController < ApplicationController
   end
 
   def edit
+    p '*' * 100
+    p params
+    @post = Entry.find(params[:post])
     render 'entries/_edit'
   end
 

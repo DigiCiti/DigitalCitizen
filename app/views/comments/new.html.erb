@@ -1,0 +1,10 @@
+<div class="usa-grid profile-comment-form-cont">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+  <%= form_tag comments_path, method: :post do %>
+    Comment: <%= text_area_tag :body %>
+    <%= hidden_field_tag :commentable_id, @entry.id %>
+    <%= hidden_field_tag :commentable_type, @entry.class %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+</div>
