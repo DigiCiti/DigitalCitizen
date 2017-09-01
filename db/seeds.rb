@@ -104,3 +104,30 @@ end
 30.times do
   Entry.create(user_id: 16, title: Faker::GameOfThrones.character, body: Faker::ChuckNorris.fact, entry_type: ["profile_post", "memo", "group_page"].sample)
 end
+
+# SEEDING COMMENTS
+max_comments = 50
+comments_needed = max_comments - Comment.count
+
+comments_needed.times do
+  comment_data = {}
+  comment_data[:user_id] = rand(1..16)
+  comment_data[:body] = Faker::StarWars.quote
+  comment_data[:commentable_id] = rand(1..15)
+  comment_data[:commentable_type] = "Entry"
+
+  Comment.create(comment_data)
+end
+
+mikes_posts = Entry.where("user_id = '16' and entry_type = 'profile_post'")
+mikes_posts.each do |post|
+  comment_data = {}
+  rand(1..5).times do
+    comment_data[:user_id] = rand(1..16)
+    comment_data[:body] = Faker::StarWars.quote
+    comment_data[:commentable_id] = post.id
+    comment_data[:commentable_type] = "Entry"
+
+    Comment.create(comment_data)
+  end
+end

@@ -22,13 +22,22 @@
 // google font
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-$l-blue-box: rgba(182, 232, 250, 0.8);
+$l-blue-box: rgb(182, 232, 250);
 
+/* sets base style of background image for each page */
 body {
-  background: image-url("uscapitol.jpg");
-  background-color: rgb(182, 232, 250);
+  background-color: rgb(162, 213, 255);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* set background image per page */
+.auth-bg {
+  background: image-url("uscapitol.jpg");
 }
 
 // --misc
@@ -40,10 +49,17 @@ body {
 // --nav
 
 #nav-container {
-  background-color: rgba(255, 255, 255, 0.6);
+  height: 101px;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(90deg, red, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(90deg, red, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(90deg, red, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(90deg, white, $l-blue-box); /* Standard syntax (must be last) */
   position: fixed;
   width: 100%;
   top: 0px;
+  -moz-box-shadow: 0 0 30px 5px #999;
+  -webkit-box-shadow: 0 0 30px 5px #999;
 }
 
 #navbar {
@@ -81,7 +97,7 @@ body {
 #quiz-form-box {
   background-color: $l-blue-box;
   max-width: 900px;
-  border-radius: 25px;
+  border-radius: 5px;
   height: 1000px;
   padding: 20px 20px 20px 20px;
   display: inline-block;
@@ -105,7 +121,7 @@ body {
 #quiz-result-box {
   background-color: $l-blue-box;
   max-width: 650px;
-  border-radius: 25px;
+  border-radius: 5px;
   height: 300px;
   padding: 20px 20px 20px 20px;
   display: block;
@@ -120,7 +136,7 @@ body {
   background-color: $l-blue-box;
   max-width: 500px;
   min-width: 400px;
-  border-radius: 25px;
+  border-radius: 5px;
   height: 850px;
   padding: 20px 20px 20px 20px;
   display: block;
@@ -133,7 +149,7 @@ body {
   background-color: $l-blue-box;
   max-width: 500px;
   min-width: 400px;
-  border-radius: 25px;
+  border-radius: 5px;
   height: 450px;
   padding: 20px 20px 20px 20px;
   display: block;
@@ -154,7 +170,7 @@ body {
   background-color: $l-blue-box;
   // max-width: 500px;```
   // min-width: 400px;
-  border-radius: 25px;
+  border-radius: 5px;
   height: 350px;
   padding: 1px 20px 20px 20px;
   // display: block;
@@ -167,7 +183,7 @@ body {
   background-color: $l-blue-box;
   // max-width: 500px;
   // min-width: 400px;
-  border-radius: 25px;
+  border-radius: 5px;
   height: 450px;
   padding: 1px 20px 20px 20px;
   // display: block;
@@ -196,7 +212,7 @@ body {
 
 #cong-mem-profile-container {
   background-color: $l-blue-box;
-  border-radius: 25px;
+  border-radius: 5px;
   height: 2000px;
   padding: 1px 20px 20px 20px;
   margin-top: 130px;
@@ -235,35 +251,39 @@ body {
 
 #profile-page-main-cont {
   background-color: $l-blue-box;
-  border-radius: 25px;
-  height: 2000px;
+  border-radius: 5px;
+  min-height: 2000px;
+  overflow: hidden;
   padding: 1px 20px 20px 20px;
   margin-top: 130px;
   margin-bottom: 50px;
 }
 
 #profile-posts-cont {
-  background-color: rgba(124, 189, 255, 0.3);
-  overflow-y: auto;
+  background-color: rgb(124, 189, 255);
   max-width: 975px;
-  height: 500px;
+  min-height: 500px;
+  overflow: hidden;
   display: block;
   margin: 0 auto;
-  border-radius: 25px;
+  border-radius: 5px;
   padding: 1px 20px 20px 20px;
 }
 
 #profile-post-form-cont {
-
+  width: 500px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .profile-post-cont {
   max-width: 975px;
-  height: 150px;
+  min-height: 100px;
+  overflow: hidden;
   display: block;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgb(255, 255, 255);
   padding: 1px 20px 20px 20px;
-  border-radius: 25px;
+  border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -272,6 +292,49 @@ body {
   float: right;
   display: inline-block;
   margin-left: 20px;
+  margin-top: 10px;
+}
+
+.profile-post-comment-cont {
+  min-height: 60px;
+  overflow: hidden;
+  max-width: 900px;
+  background-color: rgb(226, 226, 226);
+  display: block;
+  margin-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+.profile-post-edit-form-cont {
+  margin-top: 130px;
+  width: 480px;
+  min-height: 200px;
+  overflow:hidden;
+  background-color: $l-blue-box;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+.profile-comment-form-cont {
+  margin-top: 130px;
+  width: 480px;
+  min-height: 200px;
+  overflow:hidden;
+  background-color: $l-blue-box;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
 }
 
 
@@ -279,7 +342,7 @@ body {
  // #member-list {
  //   background-color: rgba(182, 232, 250, 0.7);
  //   max-width: 500px;
- //   border-radius: 25px;
+ //   border-radius: 5px;
  //   height: 700px;
  //   margin: 50px 50px 50px 50px;
  //   overflow-y: auto;
@@ -291,7 +354,7 @@ body {
  //   display: inline-block;
  //   background-color: rgba(182, 232, 250, 0.7);
  //   max-width: 500px;
- //   border-radius: 25px;
+ //   border-radius: 5px;
  //   height: 125px;
  //   margin: 50px 50px 50px 0px;
  //   overflow-y: auto;
@@ -303,7 +366,7 @@ body {
  //   display: inline-block;
  //   background-color: rgba(182, 232, 250, 0.7);
  //   max-width: 700px;
- //   border-radius: 25px;
+ //   border-radius: 5px;
  //   height: 280px;
  //   margin: 50px 50px 50px 0px;
  //   padding: 20px 20px 20px 20px;
