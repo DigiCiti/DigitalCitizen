@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'uri'
+require 'net/http'
 
 # SEEDING USERS
 max_users = 15
@@ -18,11 +20,24 @@ users_needed.times do
   person[:email] = Faker::Internet.safe_email
   person[:password] = Faker::Internet.password(5, 10)
 
+  url = URI("https://randomuser.me/api/")
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  request = Net::HTTP::Get.new(url)
+  request["cache-control"] = 'no-cache'
+  request["postman-token"] = '8c2b29ca-04f5-6c84-1828-d437e372d707'
+  response = http.request(request)
+  json_user = JSON.parse(response.read_body)
+  parsed_photo = json_user["results"][0]["picture"]["large"]
+
+  person[:photo_url] = parsed_photo
+
   user = User.create(person)
 
 end
 
-User.create(username: "MikeT", email: "m@m.com", password: "pass")
+User.create(username: "MikeT", email: "m@m.com", password: "pass", photo_url: "https://github.com/MikeTarkington/mike_tarkington_site/blob/master/square_profile_img_hr.png?raw=true")
 
 # SEEDING BASE QUIZ
 max_quizzes = 15

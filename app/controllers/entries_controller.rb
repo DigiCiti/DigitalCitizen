@@ -22,7 +22,7 @@ class EntriesController < ApplicationController
     p '*' * 100
     p params
     @post = Entry.find(params[:post])
-    render 'entries/_edit'
+    render 'entries/edit'
   end
 
   def update

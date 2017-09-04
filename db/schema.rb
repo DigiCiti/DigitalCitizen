@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170831024602) do
 
   create_table "entries", force: :cascade do |t|
     t.string "title"
-    t.string "body", null: false
+    t.text "body", null: false
     t.string "entry_type", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170831024602) do
     t.string "username", null: false
     t.string "email", null: false
     t.string "password_digest"
+    t.string "photo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
