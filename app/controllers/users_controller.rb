@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       and status = 'unanswered'")
     @sent_pend_friend_req = Friendship.where("user_id = '#{@user.id}'
       and status = 'unanswered'")
-      
+
     # members are not currently sorted by alpha order beyond their last initial
     @house_members = CongressMember.new(endpoint: "member_list", branch: "house")
     @house_members = @house_members.members_basic_details
@@ -39,6 +39,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Entry.where("user_id = '#{@user.id}' and entry_type = 'profile_post'").last(10)
+    # need to setup offset for pagination or additional posts to load on scroll
+    @posts = @posts.sort_by &:created_at
+    @posts = @posts.reverse
+    # started to work through avoidance of User.find call in view but not sure if
+    # it would even be less expensive...
+    # p '*' * 100
+    # @comments = []
+    # @posts.each do |post|
+    #   @comments = post.comments
+    # end
   end
 
   private

@@ -7,7 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'uri'
+require 'net/http'
 
+# SEEDING USERS
 max_users = 15
 users_needed = max_users - User.count
 
@@ -17,12 +20,26 @@ users_needed.times do
   person[:email] = Faker::Internet.safe_email
   person[:password] = Faker::Internet.password(5, 10)
 
+  url = URI("https://randomuser.me/api/")
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  request = Net::HTTP::Get.new(url)
+  request["cache-control"] = 'no-cache'
+  request["postman-token"] = '8c2b29ca-04f5-6c84-1828-d437e372d707'
+  response = http.request(request)
+  json_user = JSON.parse(response.read_body)
+  parsed_photo = json_user["results"][0]["picture"]["large"]
+
+  person[:photo_url] = parsed_photo
+
   user = User.create(person)
 
 end
 
-User.create(username: "MikeT", email: "m@m.com", password: "pass")
+User.create(username: "MikeT", email: "m@m.com", password: "pass", photo_url: "https://github.com/MikeTarkington/mike_tarkington_site/blob/master/square_profile_img_hr.png?raw=true")
 
+# SEEDING BASE QUIZ
 max_quizzes = 15
 quizzes_needed = max_quizzes - Quiz.count
 
@@ -38,6 +55,7 @@ quizzes_needed.times do
 
 end
 
+# SEEDING QUIZ RESPONSES
 max_responses = 15
 responses_needed = max_responses - Response.count
 
@@ -56,7 +74,7 @@ responses_needed.times do
 
 end
 
-
+# SEEDING FRIENDSHIPS
 max_friendships = 100
 friendships_needed = max_friendships - Friendship.count
 
@@ -81,4 +99,50 @@ end
 
 15.times do
   Friendship.create(user_id: rand(1..15), friended_user: 16, status: ["approved", "unanswered"].sample)
+end
+
+# SEEDING ENTRIES
+max_entries = 50
+entries_needed = max_entries - Entry.count
+
+entries_needed.times do
+  entry_data = {}
+  entry_data[:user_id] = rand(1..15)
+  entry_data[:title] = Faker::StarWars.planet
+  entry_data[:body] = Faker::Lorem.paragraph
+  entry_data[:entry_type] = ["profile_post", "memo", "group_page"].sample
+
+  Entry.create(entry_data)
+end
+
+
+30.times do
+  Entry.create(user_id: 16, title: Faker::GameOfThrones.character, body: Faker::ChuckNorris.fact, entry_type: ["profile_post", "memo", "group_page"].sample)
+end
+
+# SEEDING COMMENTS
+max_comments = 50
+comments_needed = max_comments - Comment.count
+
+comments_needed.times do
+  comment_data = {}
+  comment_data[:user_id] = rand(1..16)
+  comment_data[:body] = Faker::StarWars.quote
+  comment_data[:commentable_id] = rand(1..15)
+  comment_data[:commentable_type] = "Entry"
+
+  Comment.create(comment_data)
+end
+
+mikes_posts = Entry.where("user_id = '16' and entry_type = 'profile_post'")
+mikes_posts.each do |post|
+  comment_data = {}
+  rand(1..5).times do
+    comment_data[:user_id] = rand(1..16)
+    comment_data[:body] = Faker::StarWars.quote
+    comment_data[:commentable_id] = post.id
+    comment_data[:commentable_type] = "Entry"
+
+    Comment.create(comment_data)
+  end
 end

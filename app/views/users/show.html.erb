@@ -1,7 +1,57 @@
-<h3>Welcome <%= @user.username %></h3>
+<div class="usa-grid usa-width-one-half" id="profile-page-main-cont">
+  <div id="profile-info-cont">
+    <div>
+      <img id="profile-photo-cont" src="<%= @user.photo_url %>" alt="profile image">
+    </div>
+    <h3><%= @user.username %></h3>
+  </div>
 
-<% if @user.id != current_user.id && !friend?(@user.id) %>
-  <%= link_to "Add Friend", friendships_path(add_id: @user.id), method: :post %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<% end %>
+  <% if signed_in? && @user.id != current_user.id && !friend?(@user.id) %>
+    <%= link_to "Add Friend", friendships_path(add_id: @user.id), method: :post %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+
+  <% if signed_in? && @user.id == current_user.id %>
+    <div id="profile-post-form-cont">
+      <%= flash[:notice] %>
+      <%= flash[:error] %>
+      <%= form_tag '/entries' do %>
+        Title(optional): <%= text_field_tag :title %><br>
+        Body: <%= text_area_tag :body %>
+        <%= hidden_field_tag :entry_type, "profile_post" %>
+        <%= submit_tag "Submit" %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div id="profile-posts-cont">
+    <% @posts.each do |post| %>
+      <div class="profile-post-cont">
+        <% if signed_in? && @user.id == current_user.id %>
+        <div id="profile-post-edit-cont">
+          <%= link_to "Edit", edit_entry_path(post.id, post: post) %> |
+          <!-- confirm isn't currently working but this shoule handled with ajax -->
+          <%= link_to "Delete", post, method: :delete, confirm: "Are you sure you want to delete this post?" %>
+        </div>
+        <% end %>
+        <p><%= post.title %></p>
+        <p><%= post.body %></p>
+        <p><%= post.created_at.strftime('%l:%M%P - %m/%d/%y') %></p>
+        <%= button_to "Comment", new_comment_path(post.id), method: :get %>
+        <% post.comments.reverse.each do |comment| %>
+          <div class="usa-grid profile-post-comment-cont">
+            <%= User.find(comment.user_id).username %><br>
+            <%= comment.body %><br>
+            <%= comment.created_at.strftime('%l:%M%P - %m/%d/%y') %>
+            <% if signed_in? && comment.user.id == current_user.id %>
+            | <%= link_to "Edit", edit_comment_path(comment.id, comment: comment) %> |
+            <!-- confirm isn't currently working but this shoule handled with ajax -->
+            <%= link_to "Delete", comment_path(id: comment.id, entry_user: post.user_id), method: :delete, confirm: "Are you sure you want to delete this comment?" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

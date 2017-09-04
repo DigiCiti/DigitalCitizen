@@ -2,6 +2,7 @@
   <p>Enter your quiz responses to determine your likely political leaning on a spectrum of liberal to conservative:</p>
   <p>Note that being liberal or conservative is not the same as being a Democrat or Republican. We may be surprised that Liberal to Democrat, and Conservative to Republican correlations are not nearly as strong as we thought.</p>
   <br><br>
+  <!-- consider revision to rails form helper -->
   <% if current_user %>
     <form class="" action="/quiz_responses" method="post">
       <p> <%= @quiz.question_1 %></p>

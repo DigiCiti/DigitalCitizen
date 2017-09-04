@@ -4,13 +4,13 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :friendships
-
+  has_many :entries
   has_many :responses
   has_many :quizzes, through: :responses, source: :quiz_id
 
   # validates :password, :length => { :minimum => 5 }
   # validates_confirmation_of :password
-  validates_presence_of :username, :email#, :password_hash
+  validates_presence_of :username, :email #, :password_hash
   validates_uniqueness_of :username, :email
 
   # include BCrypt
