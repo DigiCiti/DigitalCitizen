@@ -260,8 +260,14 @@ body {
 }
 
 #profile-info-cont {
-  margin-left: 20px;
+  background-color: rgb(124, 189, 255);
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #profile-photo-cont {
@@ -274,7 +280,6 @@ body {
 
 #profile-posts-cont {
   background-color: rgb(124, 189, 255);
-  max-width: 975px;
   min-height: 500px;
   overflow: hidden;
   display: block;
