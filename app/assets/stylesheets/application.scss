@@ -252,11 +252,24 @@ body {
 #profile-page-main-cont {
   background-color: $l-blue-box;
   border-radius: 5px;
-  min-height: 2000px;
+  min-height: 100px;
   overflow: hidden;
   padding: 1px 20px 20px 20px;
   margin-top: 130px;
   margin-bottom: 50px;
+}
+
+#profile-info-cont {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#profile-photo-cont {
+  border-radius: 50%;
+  display: block;
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 20px;
 }
 
 #profile-posts-cont {
