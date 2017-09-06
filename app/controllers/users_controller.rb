@@ -53,12 +53,17 @@ class UsersController < ApplicationController
   end
 
   def update
+    p '*' * 80
+    p params
+    p '*' * 80
+    p params[:user][:avatar]
     user = User.find(current_user.id)
     user.avatar = nil
     user.save
-    user.avatar = params[:avatar]
-    user.save
-    redirect_to controller: 'users', action: 'show', id: current_user.id
+    user.avatar = params[:user][:avatar]
+    if user.save
+      redirect_to controller: 'users', action: 'show', id: current_user.id
+    end
   end
 
   private
