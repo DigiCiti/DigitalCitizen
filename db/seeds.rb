@@ -109,7 +109,7 @@ entries_needed.times do
   entry_data = {}
   entry_data[:user_id] = rand(1..15)
   entry_data[:title] = Faker::StarWars.planet
-  entry_data[:body] = Faker::Lorem.paragraph
+  entry_data[:body] = Faker::ChuckNorris.fact
   entry_data[:entry_type] = ["profile_post", "memo", "group_page"].sample
 
   Entry.create(entry_data)
