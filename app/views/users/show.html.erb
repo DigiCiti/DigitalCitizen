@@ -1,9 +1,13 @@
 <div class="usa-grid usa-width-one-half" id="profile-page-main-cont">
   <div id="profile-info-cont">
     <div>
-      <img id="profile-photo-cont" src="<%= @user.photo_url %>" alt="profile image">
+      <img id="profile-photo-cont" src="<%= @user.avatar %>" alt="profile image">
+      <%= form_for @user, url: users_path(id: current_user.id), method: :put, html: { multipart: true } do |form| %>
+        <%= form.file_field :avatar %>
+        <%= submit_tag "Upload" %>
+      <% end %>
       <h3><%= @user.username %></h3>
-    </div>  
+    </div>
   </div>
 
   <% if signed_in? && @user.id != current_user.id && !friend?(@user.id) %>

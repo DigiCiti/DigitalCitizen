@@ -52,10 +52,19 @@ class UsersController < ApplicationController
     # end
   end
 
+  def update
+    user = User.find(current_user.id)
+    user.avatar = nil
+    user.save
+    user.avatar = params[:avatar]
+    user.save
+    redirect_to controller: 'users', action: 'show', id: current_user.id
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar)
   end
 
 end
