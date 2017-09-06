@@ -53,10 +53,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    p '*' * 80
-    p params
-    p '*' * 80
-    p params[:user][:avatar]
     user = User.find(current_user.id)
     user.avatar = nil
     user.save

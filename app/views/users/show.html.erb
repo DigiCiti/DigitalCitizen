@@ -1,7 +1,7 @@
 <div class="usa-grid usa-width-one-half" id="profile-page-main-cont">
   <div id="profile-info-cont">
     <div>
-      <%= image_tag @user.avatar.url(:medium), id: 'profile-photo-cont' %>
+      <%= image_tag @user.avatar.url(:medium) %>
       <%= form_for @user, url: user_path(current_user.id), html: { multipart: true } do |form| %>
         <%= form.file_field :avatar %>
         <%= submit_tag "Upload" %>
