@@ -50,12 +50,16 @@ class UsersController < ApplicationController
     # @posts.each do |post|
     #   @comments = post.comments
     # end
+
+    # an attempt at fixing the display of avatar images by reworking the url
+    # @avatar_url = @user.avatar.url
+    # @avatar_url[0..1] = "https://s3-us-west-1."
+    # p '*' * 80
+    # p @avatar_url
   end
 
   def update
     user = User.find(current_user.id)
-    user.avatar = nil
-    user.save
     user.avatar = params[:user][:avatar]
     if user.save
       redirect_to controller: 'users', action: 'show', id: current_user.id
