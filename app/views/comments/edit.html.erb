@@ -3,7 +3,7 @@
   <%= flash[:error] %>
   <%= form_tag comment_path, method: :put do %>
     Comment: <%= text_area_tag :body, @comment.body %>
-    <%= hidden_field_tag :entry_user_id, @comment.user_id %>
+    <%= hidden_field_tag :entry_user_id, @entry.user_id %>
     <%= submit_tag "Update" %>
   <% end %>
 </div>

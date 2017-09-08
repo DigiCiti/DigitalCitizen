@@ -27,6 +27,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    @entry = Entry.find(@comment.commentable_id)
     render 'comments/edit'
   end
 
