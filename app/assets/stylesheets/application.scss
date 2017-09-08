@@ -86,10 +86,12 @@ body {
 
 #nav-logged-user {
   display:inline-block;
+  font-family: 'Poppins', sans-serif;
 }
 
 .nav-item {
   margin: 10px 10px 10px 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
 // --quiz
@@ -270,8 +272,14 @@ body {
   margin-bottom: 20px;
 }
 
+.profile-username-header {
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
 #profile-photo-cont {
-  border-radius: 50%;
+  border-radius: 10px;
   display: block;
   max-width: 200px;
   max-height: 200px;
@@ -325,6 +333,23 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 5px;
+
+}
+
+.comment-user-avatar {
+  border-radius: 5px;
+  display: inline-block;
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+.comment-body-cont {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+  max-width: 750px;
 }
 
 .profile-post-edit-form-cont {
