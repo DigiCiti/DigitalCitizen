@@ -31,13 +31,13 @@ users_needed.times do
   json_user = JSON.parse(response.read_body)
   parsed_photo = json_user["results"][0]["picture"]["large"]
 
-  person[:photo_url] = parsed_photo
+  person[:avatar] = parsed_photo
 
   user = User.create(person)
 
 end
 
-User.create(username: "MikeT", email: "m@m.com", password: "pass", photo_url: "https://github.com/MikeTarkington/mike_tarkington_site/blob/master/square_profile_img_hr.png?raw=true")
+User.create(username: "MikeT", email: "m@m.com", password: "pass", avatar: "https://github.com/MikeTarkington/mike_tarkington_site/blob/master/square_profile_img_hr.png?raw=true")
 
 # SEEDING BASE QUIZ
 max_quizzes = 15
