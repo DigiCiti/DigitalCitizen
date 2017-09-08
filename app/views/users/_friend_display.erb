@@ -1,8 +1,8 @@
 <% if friendship.user_id == @user.id %>
   <% @contact_id = friendship.friended_user %>
-  <% contact_name =  User.find(friendship.friended_user).username %>
 <% else %>
   <% @contact_id = friendship.user_id %>
-  <% contact_name = User.find(friendship.user_id).username %>
 <% end %>
-<%= link_to(contact_name, user_path(@contact_id)) %>
+<% contact = User.find(@contact_id) %>
+<%= image_tag contact.avatar.url(:mini), class: "hub-user-avatar-mini" %>
+<%= link_to(contact.username, user_path(@contact_id)) %>
