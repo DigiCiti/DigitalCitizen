@@ -4,6 +4,10 @@ require 'openssl'
 
 class UsersController < ApplicationController
 
+  def welcome
+    render 'users/welcome'
+  end
+
   def new
   end
 
