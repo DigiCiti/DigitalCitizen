@@ -1,5 +1,10 @@
-<div id="user-search-results-cont">
+<div class="usa-grid usa-width-one-half" id="user-search-results-cont">
     <% @users.each do |user| %>
-    <p><%= link_to user.username, "/users/#{user.id}" %></p>
+    <div class="search-result-user-cont">
+      <%= link_to user.username, "/users/#{user.id}" %><br><br>
+      <%= link_to user_path(user.id) do %>
+         <%= image_tag user.avatar.url(:thumb), class: "searched-user-avatar" %>
+      <% end %>
+    </div>
     <% end %>
 </div>
