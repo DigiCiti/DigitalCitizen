@@ -84,6 +84,10 @@ body {
   color: $color-cool-blue-light;
 }
 
+#nav-search-form {
+  display: inline-block;
+}
+
 #nav-logged-user {
   display:inline-block;
   font-family: 'Poppins', sans-serif;
@@ -92,6 +96,12 @@ body {
 .nav-item {
   margin: 10px 10px 10px 10px;
   font-family: 'Poppins', sans-serif;
+}
+
+// user search results
+
+#user-search-results-cont {
+  margin-top: 130px;
 }
 
 // --quiz

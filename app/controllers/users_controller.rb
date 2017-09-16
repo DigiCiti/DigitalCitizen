@@ -8,6 +8,13 @@ class UsersController < ApplicationController
     render 'users/welcome'
   end
 
+  def index
+    p '*' * 80
+    q = params[:q]
+    p @users = User.search(username_cont: q).result
+    render 'users/search_results'
+  end
+
   def new
   end
 

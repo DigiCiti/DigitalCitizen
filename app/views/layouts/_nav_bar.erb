@@ -1,17 +1,20 @@
 <div id="nav-container" class="nav-gradient">
   <%= image_tag "digiciti_logo.png", id: 'nav-logo' %>
   <h1 id="nav-title">Digital Citizen</h1>
+  <%= form_tag users_path, id: "nav-search-form", method: :get do %>
+    <%= text_field_tag :q, nil %>
+  <% end %>
   <div id="navbar">
     <!-- should refactor all to link_to -->
-  <% if current_user %>
-      <div id="nav-logged-user"><%= current_user.username %></div>
-      <a class="nav-item" <%= link_to "Profile", "/users/#{current_user.id}" %></a></li>
-      <a class="nav-item" <%= link_to "Logout", '/sessions/:id', method: "delete" %></a></li>
-      <a class="nav-item" href='/users/hub/<%= current_user.id %>'>Hub</a></li>
-  <% else %>
-      <a class="nav-item" href='/users/new'>Sign Up</a></li>
-      <a class="nav-item" href='/sessions/new'>Login</a></li>
-      <a class="nav-item" href='/'>Home</a></li>
-  <% end %>
+    <% if current_user %>
+        <div id="nav-logged-user"><%= current_user.username %></div>
+        <a class="nav-item" <%= link_to "Profile", "/users/#{current_user.id}" %></a></li>
+        <a class="nav-item" <%= link_to "Logout", '/sessions/:id', method: "delete" %></a></li>
+        <a class="nav-item" href='/users/hub/<%= current_user.id %>'>Hub</a></li>
+    <% else %>
+        <a class="nav-item" href='/users/new'>Sign Up</a></li>
+        <a class="nav-item" href='/sessions/new'>Login</a></li>
+        <a class="nav-item" href='/'>Home</a></li>
+    <% end %>
   </div>
 </div>
