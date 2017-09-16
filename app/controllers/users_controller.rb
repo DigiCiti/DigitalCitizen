@@ -9,9 +9,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    p '*' * 80
     q = params[:q]
-    p @users = User.search(username_cont: q).result
+    @users = User.search(username_cont: q).result
     render 'users/search_results'
   end
 

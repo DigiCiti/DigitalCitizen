@@ -1,5 +1,5 @@
 <div id="user-search-results-cont">
     <% @users.each do |user| %>
-    <p><%= user.username %></p>
+    <p><%= link_to user.username, "/users/#{user.id}" %></p>
     <% end %>
 </div>
