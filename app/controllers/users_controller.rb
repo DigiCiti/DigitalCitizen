@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    q = params[:q]
-    @users = User.search(username_cont: q).result
+    @query = params[:q]
+    @users = User.search(username_cont: @query).result
     render 'users/search_results'
   end
 
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      redirect_to "/users/hub/#{user.id}"
+      redirect_to "/users/edit/#{user.id}"
     else
       redirect_to '/', flash: { error: user.errors.full_messages }
     end
@@ -60,12 +60,10 @@ class UsersController < ApplicationController
     # @posts.each do |post|
     #   @comments = post.comments
     # end
+  end
 
-    # an attempt at fixing the display of avatar images by reworking the url
-    # @avatar_url = @user.avatar.url
-    # @avatar_url[0..1] = "https://s3-us-west-1."
-    # p '*' * 80
-    # p @avatar_url
+  def edit
+    @user = User.find(current_user.id)
   end
 
   def update

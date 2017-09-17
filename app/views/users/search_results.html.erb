@@ -1,10 +1,19 @@
+<!-- This will need to utilize search result pagination and ordering/filtering -->
+<!-- Add feature for more advanced search parameters such as geographic location -->
+<!-- Consider having search results for members of congress also appear here -->
+
 <div class="usa-grid usa-width-one-half" id="user-search-results-cont">
+  <p>Search results for "<%= @query %>":</p>
+  <% if @users.count > 0 %>
     <% @users.each do |user| %>
     <div class="search-result-user-cont">
-      <%= link_to user.username, "/users/#{user.id}" %><br><br>
       <%= link_to user_path(user.id) do %>
-         <%= image_tag user.avatar.url(:thumb), class: "searched-user-avatar" %>
+        <%= image_tag user.avatar.url(:thumb), class: "searched-user-avatar" %>
       <% end %>
+      <%= link_to user.username, "/users/#{user.id}" %>
     </div>
     <% end %>
+  <% else %>
+    <p>Sorry, we couldn't find any citizens by that name. Please try again.</p>
+  <% end %>
 </div>
