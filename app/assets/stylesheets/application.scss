@@ -23,6 +23,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 $l-blue-box: rgb(182, 232, 250);
+$medium-blue: rgb(124, 189, 255);
 
 /* sets base style of background image for each page */
 body {
@@ -114,7 +115,7 @@ body {
 
 // user search results
 
-#user-search-results-cont {
+#search-results-cont {
   width: 100%;
   background-color: $l-blue-box;
   border-radius: 5px;
@@ -125,21 +126,69 @@ body {
   margin-bottom: 50px;
 }
 
-.search-result-user-cont {
-  background-color: white;
+#search-users-results-cont {
+  display: inline-block;
+  max-width: 450px;
+  min-width: 350px;
+  vertical-align: top;
+  margin-left: 20px;
+  background-color: $medium-blue;
   border-radius: 5px;
-  max-width: 500px;
-  min-width: 150px;
   padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   padding-left: 20px;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  .searched-user-avatar {
-    border-radius: 5px;
-    display: inline-block;
-  }
 }
 
+.search-user-result-cont {
+  background-color: white;
+  border-radius: 5px;
+  max-width: 450px;
+  min-width: 350px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.searched-user-avatar {
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#search-c-members-cont{
+  display: inline-block;
+  min-width: 400px;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.search-c-member-details-cont {
+  background-color: $medium-blue;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.search-c-member-img {
+  display: inline-block;
+  max-width: 150px;
+  max-height: 125px;
+  border-radius: 5px;
+}
 
 // --quiz
 
@@ -361,7 +410,7 @@ body {
 }
 
 #profile-posts-cont {
-  background-color: rgb(124, 189, 255);
+  background-color: $medium-blue;
   min-height: 500px;
   overflow: hidden;
   display: block;
