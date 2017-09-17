@@ -1,9 +1,26 @@
 <!-- This will need to utilize search result pagination and ordering/filtering -->
 <!-- Add feature for more advanced search parameters such as geographic location -->
-<!-- Consider having search results for members of congress also appear here -->
 
 <div class="usa-grid usa-width-one-half" id="user-search-results-cont">
   <p>Search results for "<%= @query %>":</p>
+  <% if @congress_members.count > 0 %>
+    <% @congress_members.each do |member| %>
+      <div class="hub-c-member-details-cont">
+        <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{member["member_id"]}.jpg", alt: "#{member["full_name"]} Image", class: "hub-c-member-img" %>
+        <p>
+          <%= link_to "#{member["first_name"]} #{member["last_name"]}",
+          congress_member_path(member_id: member["member_id"],
+          id: current_user.id) %>
+           - <%= "#{member["roles"][0]["chamber"]}" %>
+           - <%= "#{member["roles"][0]["title"]}" %>
+           - <%= "#{member["current_party"]}" %>
+           - <%= "#{member["roles"][0]["state"]}" %>
+        </p>
+      </div>
+    <% end %>
+  <% else %>
+
+  <% end %>
   <% if @users.count > 0 %>
     <% @users.each do |user| %>
     <div class="search-result-user-cont">
@@ -14,6 +31,6 @@
     </div>
     <% end %>
   <% else %>
-    <p>Sorry, we couldn't find any citizens by that name. Please try again.</p>
+    <p>There are no digital citizens by that name.</p>
   <% end %>
 </div>
