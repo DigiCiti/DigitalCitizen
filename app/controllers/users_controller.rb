@@ -10,14 +10,25 @@ class UsersController < ApplicationController
 
   def index
     @query = params[:q]
-    @users = User.search(username_cont: @query).result
-    @members_raw = CongressMember.search(f_name_or_l_name_cont: @query).result
-    @congress_members = []
-    @members_raw.each do |member|
-      @congress_members << ProPublicaCongressAdapter.new(endpoint: "find_member", member_id: member.politician_id).single_member_details
+    @query_array = @query.split(' ')
+    if @query_array.count > 1
+      @congress_members = []
+      @query_array.each do |term|
+        @users = User.search(username_cont: term).result
+        @members_raw = CongressMember.search(f_name_or_l_name_cont: term).result
+        @members_raw.each do |member|
+          @congress_members << ProPublicaCongressAdapter.new(endpoint: "find_member", member_id: member.politician_id).single_member_details
+        end
+      end
+    else
+      @users = User.search(username_cont: @query).result
+      @members_raw = CongressMember.search(f_name_or_l_name_cont: @query).result
+      @congress_members = []
+      @members_raw.each do |member|
+        @congress_members << ProPublicaCongressAdapter.new(endpoint: "find_member", member_id: member.politician_id).single_member_details
+      end
     end
-    p '*' * 80
-    p @congress_members
+
     render 'users/search_results'
   end
 
