@@ -57,20 +57,26 @@
     <p>Senate</p>
     <p>Name(sorted by last) - State - Party - %Voting with Party</p>
     <% @senate_members.each do |member| %>
-      <p><%= link_to "#{member[:full_name]}", congress_member_path(member_id: member[:id]) %>
-         - <%= "#{member[:state]} - #{member[:party]} -
-         #{member[:votes_with_party_pct]}" %>
-      </p>
+      <div class="hub-c-member-details-cont">
+        <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{member[:id]}.jpg", alt: "#{member[:full_name]} Image", class: "hub-c-member-img" %>
+        <p><%= link_to "#{member[:full_name]}", congress_member_path(member_id: member[:id]) %>
+          - <%= "#{member[:state]} - #{member[:party]} -
+          #{member[:votes_with_party_pct]}" %>
+        </p>
+      </div>
     <% end %>
   </div>
   <div class="hub-c-member-sub-sec">
     <p>House</p>
     <p>Name(sorted by last) - State - Party - %Voting with Party</p>
     <% @house_members.each do |member| %>
-      <p><%= link_to "#{member[:full_name]}", congress_member_path(member_id: member[:id]) %>
-         - <%= "#{member[:state]} - #{member[:party]} -
-         #{member[:votes_with_party_pct]}" %>
-      </p>
+      <div class="hub-c-member-details-cont">
+        <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{member[:id]}.jpg", alt: "#{member[:full_name]} Image", class: "hub-c-member-img" %>
+        <p><%= link_to "#{member[:full_name]}", congress_member_path(member_id: member[:id]) %>
+          - <%= "#{member[:state]} - #{member[:party]} -
+          #{member[:votes_with_party_pct]}" %>
+        </p>
+      </div>
     <% end %>
   </div>
 </div>
