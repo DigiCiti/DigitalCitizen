@@ -48,9 +48,11 @@
         <% post.comments.reverse.each do |comment| %>
           <div class="usa-grid profile-post-comment-cont">
             <% commenter = User.find(comment.user_id) %>
-            <%= image_tag commenter.avatar.url(:thumb), class: "comment-user-avatar" %>
+            <%= link_to user_path(commenter.id) do %>
+               <%= image_tag commenter.avatar.url(:thumb), class: "comment-user-avatar" %>
+            <% end %>
             <div class="comment-body-cont">
-              <%= commenter.username %><br>
+              <%= link_to commenter.username, "/users/#{commenter.id}" %><br>
               <hr>
               <%= comment.body %><br><br>
               <%= comment.created_at.strftime('%l:%M%P - %m/%d/%y') %>
