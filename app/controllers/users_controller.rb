@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      redirect_to "/users/edit/#{user.id}"
+      redirect_to "/users/#{user.id}/edit", flash: { notice: "You can edit later and choose \"hub\" or \"profile\" to get going." }
     else
       redirect_to '/', flash: { error: user.errors.full_messages }
     end
