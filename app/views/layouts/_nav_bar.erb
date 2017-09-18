@@ -1,6 +1,6 @@
 <div id="nav-container" class="nav-gradient">
   <%= image_tag "digiciti_logo.png", id: 'nav-logo' %>
-  <h1 id="nav-title">Digital Citizen</h1>
+  <span id="nav-title">Digital Citizen</span>
   <%= form_tag users_path, id: "nav-search-form", method: :get do %>
     <%= text_field_tag :q, nil, placeholder: "find digital citizens or politicians...", id: "nav-search-field" %>
     <%= image_submit_tag("search-icon-md.png", id: "nav-search-submit", class: "usa-button-unstyled") %>

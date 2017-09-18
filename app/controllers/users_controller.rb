@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def index
     @query = params[:q]
     @query_array = @query.split(' ')
-    # consider refactor to avoid the nested loop and minimize repitition
+    # consider refactor to hash avoiding the nested loop and minimize repitition
     # this solution also lead's to possible duplicates as the search term will insert the record twice if say "elizabeth" and "warren" are found separetly
     if @query_array.count > 1
       @congress_members = []

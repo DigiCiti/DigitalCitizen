@@ -50,7 +50,7 @@ body {
 // --nav
 
 #nav-container {
-  height: 101px;
+  height: 85px;
   background: red; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(90deg, red, yellow); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(90deg, red, yellow); /* For Opera 11.1 to 12.0 */
@@ -67,29 +67,35 @@ body {
   display: inline-block;
   float: right;
   margin: 25px 25px 0px 0px;
+  vertical-align: middle;
 }
 
 #nav-logo {
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
   display: inline-block;
   vertical-align: middle;
 }
 
 #nav-title {
   font-family: 'Poppins', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
   display: inline-block;
-  margin-left: 30px;
-  margin-right: 50px;
-  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
   color: $color-cool-blue-light;
+  vertical-align: middle;
 }
 
 #nav-search-form {
   display: inline-block;
   width: 400px;
   float: right;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-right: 20px;
   margin-bottom: 20px;
   #nav-search-field {
@@ -231,11 +237,11 @@ body {
 // --auth
 
 #registration-container {
-  background-color: $l-blue-box;
+  background-color: rgba(182, 232, 250, 0.8);
   max-width: 500px;
   min-width: 400px;
   border-radius: 5px;
-  height: 850px;
+  height: 735px;
   padding: 20px 20px 20px 20px;
   display: block;
   margin: 0 auto;
@@ -244,11 +250,11 @@ body {
 }
 
 #login-container {
-  background-color: $l-blue-box;
+  background-color: rgba(182, 232, 250, 0.7);
   max-width: 500px;
   min-width: 400px;
   border-radius: 5px;
-  height: 450px;
+  height: 350px;
   padding: 20px 20px 20px 20px;
   display: block;
   margin: 0 auto;
@@ -256,11 +262,21 @@ body {
   margin-bottom: 50px;
 }
 
+.auth-header {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top:20px;
+  width: 100px;
+  margin: 0 auto;
+}
+
 .auth-inputs {
   display: block;
   margin: 0 auto;
   text-align: center;
 }
+
 
 // -- hub
 
@@ -456,7 +472,9 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 5px;
-
+  a {
+    text-decoration: none;
+  }
 }
 
 .comment-user-avatar {
