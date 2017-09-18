@@ -68,6 +68,13 @@ body {
   float: right;
   margin: 25px 25px 0px 0px;
   vertical-align: middle;
+  a {
+    text-decoration: none;
+  }
+  a:hover{
+    font-weight: bold;
+    color: orange;
+  }
 }
 
 #nav-logo {
