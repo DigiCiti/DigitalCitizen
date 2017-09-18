@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to "/users/hub/#{user.id}"
     else
     # If user's login doesn't work, send them back to the login form.
-      redirect_to '/sessions/new', flash: { error: 'No account exists with the email and password entered. Please try again.' }
+      redirect_to '/sessions/new', flash: { error: 'No account exists with the email and password entered.' }
     end
   end
 

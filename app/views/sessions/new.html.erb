@@ -2,8 +2,8 @@
 
 <div id="login-container">
   <span class="usa-header auth-header">Login</span>
-
-  <%= flash[:error] %>
+  <br>
+  <%= flash[:error] %><br>
   <%= form_tag '/sessions' do %>
 
     <p>Email: <%= text_field_tag :email %></p><br>

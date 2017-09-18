@@ -43,6 +43,10 @@ body {
 
 // --misc
 
+// a {
+//   outline: 0;
+// }
+
 // .btn-text {
 //   color: rgb(255, 255, 255);
 // }
@@ -85,6 +89,9 @@ body {
   margin-left: 5px;
   display: inline-block;
   vertical-align: middle;
+  a {
+    text-decoration: none;
+  }
 }
 
 #nav-title {
@@ -96,6 +103,7 @@ body {
   margin-right: 20px;
   color: $color-cool-blue-light;
   vertical-align: middle;
+  text-decoration: none;
 }
 
 #nav-search-form {
@@ -261,7 +269,7 @@ body {
   max-width: 500px;
   min-width: 400px;
   border-radius: 5px;
-  height: 350px;
+  height: 375px;
   padding: 20px 20px 20px 20px;
   display: block;
   margin: 0 auto;
