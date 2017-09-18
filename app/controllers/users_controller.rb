@@ -15,8 +15,9 @@ class UsersController < ApplicationController
     # this solution also lead's to possible duplicates as the search term will insert the record twice if say "elizabeth" and "warren" are found separetly
     if @query_array.count > 1
       @congress_members = []
+      @users = []
       @query_array.each do |term|
-        @users = User.search(username_cont: term).result
+        @users += User.search(username_cont: term).result
         @members_raw = CongressMember.search(f_name_or_l_name_cont: term).result
         @members_raw.each do |member|
           @congress_members << ProPublicaCongressAdapter.new(endpoint: "find_member", member_id: member.politician_id).single_member_details

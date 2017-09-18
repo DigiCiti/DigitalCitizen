@@ -9,11 +9,11 @@
     <% if @congress_members.count > 0 %>
       <% @congress_members.each do |member| %>
         <div class="search-c-member-details-cont">
-          <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{member["member_id"]}.jpg", alt: "#{member["full_name"]} Image", class: "search-c-member-img" %>
+          <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{member["member_id"]}.jpg", alt: "Image N/A", class: "search-c-member-img" %>
           <p>
             <%= link_to "#{member["first_name"]} #{member["last_name"]}",
             congress_member_path(member_id: member["member_id"],
-            id: current_user.id) %>
+            id: signed_in? ? current_user.id : 1) %>
             - <%= "#{member["roles"][0]["chamber"]}" %>
             - <%= "#{member["roles"][0]["title"]}" %>
             - <%= "#{member["current_party"]}" %>
