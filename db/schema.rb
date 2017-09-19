@@ -83,6 +83,14 @@ ActiveRecord::Schema.define(version: 20170917015435) do
     t.string "username", null: false
     t.string "email", null: false
     t.string "password_digest"
+    t.string "f_name"
+    t.string "l_name"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "ideology"
+    t.string "party"
+    t.string "privacy_setting"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"

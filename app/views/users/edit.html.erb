@@ -7,9 +7,17 @@
       <p>Choose your profile image:</p>
       <%= image_tag @user.avatar.url(:medium), id: "profile-photo-cont" %>
       <% if signed_in? && @user.id == current_user.id %>
-        <%= form_for @user, url: user_path(current_user.id), html: { multipart: true } do |form| %>
-          <%= form.file_field :avatar %>
-          <%= submit_tag "Upload" %>
+        <%= form_for @user, url: user_path(current_user.id), html: { multipart: true } do |f| %>
+          <%= f.file_field :avatar %><br>
+          First Name: <%= f.text_field :f_name, class: 'auth-inputs' %><br>
+          Last Name: <%= f.text_field :l_name, class: 'auth-inputs' %><br>
+          City: <%= f.text_field :city, class: 'auth-inputs' %><br>
+          State: <%= f.text_field :state, class: 'auth-inputs' %><br>
+          Country: <%= f.text_field :country, class: 'auth-inputs' %><br>
+          Ideology: <%= f.text_field :ideology, class: 'auth-inputs' %><br>
+          Party Affiliation: <%= f.text_field :party, class: 'auth-inputs' %><br>
+          Privacy Options: <%= f.text_field :privacy_setting, class: 'auth-inputs' %><br>
+          <%= f.submit "Save" %>
         <% end %>
       <% end %>
     </div>
@@ -19,17 +27,5 @@
     <p class="alert"><%= alert %></p>
     <% end %>
   </div>
-
-  <%= form_for :user, url: '/users' do |f| %>
-    First Name: <%= f.text_field :username, class: 'auth-inputs' %><br>
-    Last Name: <%= f.text_field :email, class: 'auth-inputs' %><br>
-    City: <%= f.password_field :password, class: 'auth-inputs' %><br>
-    State: <%= f.password_field :password_confirmation, class: 'auth-inputs' %><br>
-    Country: <%= f.text_field :username, class: 'auth-inputs' %><br>
-    Ideology: <%= f.text_field :username, class: 'auth-inputs' %><br>
-    Party Affiliation: <%= f.text_field :username, class: 'auth-inputs' %><br>
-    Privacy Options: <%= f.text_field :username, class: 'auth-inputs' %><br>
-    <%= f.submit "Save" %>
-  <% end %>
 
 </div>

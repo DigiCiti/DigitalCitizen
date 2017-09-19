@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    user.avatar = "https://github.com/DigiCiti/DigitalCitizen/blob/development/app/assets/images/default_avatar.png?raw=true"
     if user.save
       session[:user_id] = user.id
       redirect_to "/users/#{user.id}/edit", flash: { notice: "You can edit later and choose \"hub\" or \"profile\" to get going." }
