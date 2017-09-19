@@ -1,12 +1,12 @@
 <body class="auth-bg">
 
 <div id="login-container">
-  <h2 class="usa-header">Login</h2>
-
-  <%= flash[:error] %>
+  <span class="usa-header auth-header">Login</span>
+  <br>
+  <%= flash[:error] %><br>
   <%= form_tag '/sessions' do %>
 
-    Email: <%= text_field_tag :email %><br>
+    <p>Email: <%= text_field_tag :email %></p><br>
     Password: <%= password_field_tag :password %>
     <%= submit_tag "Submit" %>
 

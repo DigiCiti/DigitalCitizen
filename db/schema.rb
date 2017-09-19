@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906032325) do
+ActiveRecord::Schema.define(version: 20170917015435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20170906032325) do
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "congress_members", force: :cascade do |t|
+    t.string "f_name", null: false
+    t.string "l_name", null: false
+    t.string "politician_id", null: false
   end
 
   create_table "entries", force: :cascade do |t|
@@ -77,6 +83,14 @@ ActiveRecord::Schema.define(version: 20170906032325) do
     t.string "username", null: false
     t.string "email", null: false
     t.string "password_digest"
+    t.string "f_name"
+    t.string "l_name"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "ideology"
+    t.string "party"
+    t.string "privacy_setting"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"

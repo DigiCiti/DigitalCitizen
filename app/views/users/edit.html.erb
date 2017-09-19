@@ -1,0 +1,31 @@
+<div class="usa-grid usa-width-one-half" id="profile-page-main-cont">
+  <!-- put the flash up on a proper condition and clean it up in a div with style -->
+  <%= flash[:notice] %>
+  <div id="profile-info-cont">
+    <div>
+      <span class="profile-username-header">Edit Your Profile</span>
+      <p>Choose your profile image:</p>
+      <%= image_tag @user.avatar.url(:medium), id: "profile-photo-cont" %>
+      <% if signed_in? && @user.id == current_user.id %>
+        <%= form_for @user, url: user_path(current_user.id), html: { multipart: true } do |f| %>
+          <%= f.file_field :avatar %><br>
+          First Name: <%= f.text_field :f_name, class: 'auth-inputs' %><br>
+          Last Name: <%= f.text_field :l_name, class: 'auth-inputs' %><br>
+          City: <%= f.text_field :city, class: 'auth-inputs' %><br>
+          State: <%= f.text_field :state, class: 'auth-inputs' %><br>
+          Country: <%= f.text_field :country, class: 'auth-inputs' %><br>
+          Ideology: <%= f.text_field :ideology, class: 'auth-inputs' %><br>
+          Party Affiliation: <%= f.text_field :party, class: 'auth-inputs' %><br>
+          Privacy Options: <%= f.text_field :privacy_setting, class: 'auth-inputs' %><br>
+          <%= f.submit "Save" %>
+        <% end %>
+      <% end %>
+    </div>
+    <% if signed_in? && @user.id != current_user.id && !friend?(@user.id) %>
+    <%= button_to "Add Contact", friendships_path(add_id: @user.id), method: :post %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <% end %>
+  </div>
+
+</div>

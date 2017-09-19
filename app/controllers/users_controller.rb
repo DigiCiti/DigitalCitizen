@@ -8,14 +8,44 @@ class UsersController < ApplicationController
     render 'users/welcome'
   end
 
+  def index
+    @query = params[:q]
+    @query_array = @query.split(' ')
+    # consider refactor to hash avoiding the nested loop and minimize repitition
+    # this solution also lead's to possible duplicates as the search term will insert the record twice if say "elizabeth" and "warren" are found separetly
+    if @query_array.count > 1
+      @congress_members = []
+      @users = []
+      @query_array.each do |term|
+        @users += User.search(username_cont: term).result
+        @members_raw = CongressMember.search(f_name_or_l_name_cont: term).result
+        @members_raw.each do |member|
+          @congress_members << ProPublicaCongressAdapter.new(endpoint: "find_member", member_id: member.politician_id).single_member_details
+        end
+      end
+    else
+      @users = User.search(username_cont: @query).result
+      @members_raw = CongressMember.search(f_name_or_l_name_cont: @query).result
+      @congress_members = []
+      @members_raw.each do |member|
+        @congress_members << ProPublicaCongressAdapter.new(endpoint: "find_member", member_id: member.politician_id).single_member_details
+      end
+    end
+
+    render 'users/search_results'
+  end
+
   def new
   end
 
   def create
     user = User.new(user_params)
+    user.avatar = "https://github.com/DigiCiti/DigitalCitizen/blob/development/app/assets/images/default_avatar.png?raw=true"
+    # consider having sample friendships with different status
+    # sample entry and comment which each explain their process
     if user.save
       session[:user_id] = user.id
-      redirect_to "/users/hub/#{user.id}"
+      redirect_to "/users/#{user.id}/edit", flash: { notice: "You can edit later and choose \"hub\" or \"profile\" to get going." }
     else
       redirect_to '/', flash: { error: user.errors.full_messages }
     end
@@ -33,9 +63,9 @@ class UsersController < ApplicationController
       and status = 'unanswered'")
 
     # members are not currently sorted by alpha order beyond their last initial
-    @house_members = CongressMember.new(endpoint: "member_list", branch: "house")
+    @house_members = ProPublicaCongressAdapter.new(endpoint: "member_list", branch: "house")
     @house_members = @house_members.members_basic_details
-    @senate_members = CongressMember.new(endpoint: "member_list", branch: "senate")
+    @senate_members = ProPublicaCongressAdapter.new(endpoint: "member_list", branch: "senate")
     @senate_members = @senate_members.members_basic_details
 
     render 'users/hub'
@@ -54,12 +84,10 @@ class UsersController < ApplicationController
     # @posts.each do |post|
     #   @comments = post.comments
     # end
+  end
 
-    # an attempt at fixing the display of avatar images by reworking the url
-    # @avatar_url = @user.avatar.url
-    # @avatar_url[0..1] = "https://s3-us-west-1."
-    # p '*' * 80
-    # p @avatar_url
+  def edit
+    @user = User.find(current_user.id)
   end
 
   def update

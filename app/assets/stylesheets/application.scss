@@ -23,6 +23,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 $l-blue-box: rgb(182, 232, 250);
+$medium-blue: rgb(124, 189, 255);
 
 /* sets base style of background image for each page */
 body {
@@ -42,6 +43,10 @@ body {
 
 // --misc
 
+// a {
+//   outline: 0;
+// }
+
 // .btn-text {
 //   color: rgb(255, 255, 255);
 // }
@@ -49,7 +54,7 @@ body {
 // --nav
 
 #nav-container {
-  height: 101px;
+  height: 85px;
   background: red; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(90deg, red, yellow); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(90deg, red, yellow); /* For Opera 11.1 to 12.0 */
@@ -66,22 +71,57 @@ body {
   display: inline-block;
   float: right;
   margin: 25px 25px 0px 0px;
+  vertical-align: middle;
+  a {
+    text-decoration: none;
+  }
+  a:hover{
+    font-weight: bold;
+    color: orange;
+  }
 }
 
 #nav-logo {
-  height: 100px;
-  width: 100px;
+  height: 75px;
+  width: 75px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
   display: inline-block;
   vertical-align: middle;
+  a {
+    text-decoration: none;
+  }
 }
 
 #nav-title {
   font-family: 'Poppins', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
   display: inline-block;
-  margin-left: 30px;
-  margin-right: 50px;
-  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
   color: $color-cool-blue-light;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+#nav-search-form {
+  display: inline-block;
+  width: 400px;
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  #nav-search-field {
+    width: 350px;
+    display: inline-block;
+    color: purple;
+  }
+  #nav-search-submit {
+    display: inline-block;
+    float: right;
+  }
 }
 
 #nav-logged-user {
@@ -92,6 +132,83 @@ body {
 .nav-item {
   margin: 10px 10px 10px 10px;
   font-family: 'Poppins', sans-serif;
+}
+
+// user search results
+
+#search-results-cont {
+  width: 100%;
+  background-color: $l-blue-box;
+  border-radius: 5px;
+  min-height: 100px;
+  overflow: hidden;
+  padding: 20px 20px 20px 20px;
+  margin-top: 130px;
+  margin-bottom: 50px;
+}
+
+#search-users-results-cont {
+  display: inline-block;
+  max-width: 450px;
+  min-width: 350px;
+  vertical-align: top;
+  margin-left: 20px;
+  background-color: $medium-blue;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.search-user-result-cont {
+  background-color: white;
+  border-radius: 5px;
+  max-width: 450px;
+  min-width: 350px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.searched-user-avatar {
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#search-c-members-cont{
+  display: inline-block;
+  min-width: 400px;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.search-c-member-details-cont {
+  background-color: $medium-blue;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.search-c-member-img {
+  display: inline-block;
+  max-width: 150px;
+  max-height: 125px;
+  border-radius: 5px;
 }
 
 // --quiz
@@ -135,11 +252,11 @@ body {
 // --auth
 
 #registration-container {
-  background-color: rgba(182, 232, 250, 0.7);
+  background-color: rgba(182, 232, 250, 0.8);
   max-width: 500px;
   min-width: 400px;
   border-radius: 5px;
-  height: 850px;
+  height: 735px;
   padding: 20px 20px 20px 20px;
   display: block;
   margin: 0 auto;
@@ -152,7 +269,7 @@ body {
   max-width: 500px;
   min-width: 400px;
   border-radius: 5px;
-  height: 450px;
+  height: 375px;
   padding: 20px 20px 20px 20px;
   display: block;
   margin: 0 auto;
@@ -160,11 +277,21 @@ body {
   margin-bottom: 50px;
 }
 
+.auth-header {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top:20px;
+  width: 100px;
+  margin: 0 auto;
+}
+
 .auth-inputs {
   display: block;
   margin: 0 auto;
   text-align: center;
 }
+
 
 // -- hub
 
@@ -203,11 +330,38 @@ body {
 }
 
 .hub-c-member-sub-sec {
+  background-color: white;
   display: inline-block;
   height: 360px;
   width: 325px;
   overflow: auto;
-  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-style: solid;
+  border-color: white;
+  border-width: thick;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.hub-c-member-details-cont {
+  background-color: $l-blue-box;
+  margin-top: 1px;
+  margin-bottom: 2px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+
+.hub-c-member-img {
+  display: inline-block;
+  max-width: 100px;
+  max-height: 75px;
+  border-radius: 5px;
 }
 
 // --congress member profile
@@ -287,7 +441,7 @@ body {
 }
 
 #profile-posts-cont {
-  background-color: rgb(124, 189, 255);
+  background-color: $medium-blue;
   min-height: 500px;
   overflow: hidden;
   display: block;
@@ -333,7 +487,9 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 5px;
-
+  a {
+    text-decoration: none;
+  }
 }
 
 .comment-user-avatar {

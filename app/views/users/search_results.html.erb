@@ -1,0 +1,44 @@
+<!-- This will need to utilize search result pagination and ordering/filtering -->
+<!-- Add feature for more advanced search parameters such as geographic location -->
+
+<div class="usa-grid usa-width-one-half" id="search-results-cont">
+  <p>Search results for "<%= @query %>":</p>
+  <hr>
+  <div id="search-c-members-cont">
+    <p>Found members of congress:</p>
+    <% if @congress_members.count > 0 %>
+      <% @congress_members.each do |member| %>
+        <div class="search-c-member-details-cont">
+          <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{member["member_id"]}.jpg", alt: "Image N/A", class: "search-c-member-img" %>
+          <p>
+            <%= link_to "#{member["first_name"]} #{member["last_name"]}",
+            congress_member_path(member_id: member["member_id"],
+            id: signed_in? ? current_user.id : 1) %>
+            - <%= "#{member["roles"][0]["chamber"]}" %>
+            - <%= "#{member["roles"][0]["title"]}" %>
+            - <%= "#{member["current_party"]}" %>
+            - <%= "#{member["roles"][0]["state"]}" %>
+          </p>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No members of congress were found by that name.</p>
+    <% end %>
+  </div>
+
+  <div id="search-users-results-cont">
+    <p>Found digital citizens:</p>
+    <% if @users.count > 0 %>
+      <% @users.each do |user| %>
+        <div class="search-user-result-cont">
+          <%= link_to user_path(user.id) do %>
+            <%= image_tag user.avatar.url(:thumb), class: "searched-user-avatar" %>
+          <% end %>
+          <%= link_to user.username, "/users/#{user.id}" %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>There are no digital citizens by that name.</p>
+    <% end %>
+  </div>
+</div>
