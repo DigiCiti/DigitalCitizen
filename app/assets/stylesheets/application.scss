@@ -426,7 +426,7 @@ body {
   margin-bottom: 20px;
 }
 
-.profile-username-header {
+#profile-username-header {
   font-family: 'Poppins', sans-serif;
   font-size: 40px;
   margin-bottom: 20px;
@@ -434,10 +434,18 @@ body {
 
 #profile-photo-cont {
   border-radius: 10px;
-  display: block;
+  display: inline-block;
   max-width: 200px;
   max-height: 200px;
   margin-bottom: 20px;
+}
+
+#profile-basic-info {
+  display: inline-block;
+  margin-left: 20px;
+  // max-width: 500px;
+  // min-width: 300px;
+  vertical-align: top;
 }
 
 #profile-posts-cont {

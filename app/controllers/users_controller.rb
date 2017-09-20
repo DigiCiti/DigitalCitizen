@@ -61,7 +61,7 @@ class UsersController < ApplicationController
       comment.commentable_id = entry.id
       comment.commentable_type = "Entry"
       comment.body = "This is a sample comment for a sample post you would have made. People can comment on your posts."
-      comment.user_id = current_user.id
+      comment.user_id = 16
       comment.save
 
       redirect_to "/users/#{user.id}/edit", flash: { notice: "You can edit later and choose \"hub\" or \"profile\" to get going." }
@@ -111,16 +111,20 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(current_user.id)
-    user.avatar = params[:user][:avatar]
-    user.f_name = params[:f_name]
-    user.l_name = params[:l_name]
-    user.city = params[:city]
-    user.state = params[:state]
-    user.country = params[:country]
-    user.ideology = params[:ideology]
-    user.party = params[:party]
+    if params[:user][:avatar] != nil
+      user.avatar = params[:user][:avatar]
+    end
+    user.f_name = params[:user][:f_name]
+    user.l_name = params[:user][:l_name]
+    user.city = params[:user][:city]
+    user.state = params[:user][:state]
+    user.country = params[:user][:country]
+    user.ideology = params[:user][:ideology]
+    user.party = params[:user][:party]
     if user.save
       redirect_to controller: 'users', action: 'show', id: current_user.id
+    else
+      redirect_to "/users/#{user.id}/edit", flash: { error: user.errors.full_messages }
     end
   end
 
