@@ -45,6 +45,25 @@ class UsersController < ApplicationController
     # sample entry and comment which each explain their process
     if user.save
       session[:user_id] = user.id
+
+      friendship = Friendship.create(user_id: 16, friended_user: current_user.id, status: "approved")
+      friend_req_sent = Friendship.create(user_id: current_user.id, friended_user: 15)
+      friend_req_recieved = Friendship.create(user_id: 14, friended_user: current_user.id)
+
+      entry = Entry.new
+      entry.user_id = current_user.id
+      entry.title = "A Sample Post on Your Profile"
+      entry.body = "Use your profile posts to communicate things to peers on your network who will see them in their hub feed. Only you make posts on your page but other users can comment depending on permissions you've given."
+      entry.entry_type = "profile_post"
+      entry.save
+
+      comment = Comment.new
+      comment.commentable_id = entry.id
+      comment.commentable_type = "Entry"
+      comment.body = "This is a sample comment for a sample post you would have made. People can comment on your posts."
+      comment.user_id = current_user.id
+      comment.save
+
       redirect_to "/users/#{user.id}/edit", flash: { notice: "You can edit later and choose \"hub\" or \"profile\" to get going." }
     else
       redirect_to '/', flash: { error: user.errors.full_messages }
@@ -93,6 +112,13 @@ class UsersController < ApplicationController
   def update
     user = User.find(current_user.id)
     user.avatar = params[:user][:avatar]
+    user.f_name = params[:f_name]
+    user.l_name = params[:l_name]
+    user.city = params[:city]
+    user.state = params[:state]
+    user.country = params[:country]
+    user.ideology = params[:ideology]
+    user.party = params[:party]
     if user.save
       redirect_to controller: 'users', action: 'show', id: current_user.id
     end
