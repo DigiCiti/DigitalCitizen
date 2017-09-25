@@ -448,6 +448,18 @@ body {
   vertical-align: top;
 }
 
+#profile-badge-display {
+  display: inline-block;
+  float: right;
+  .badge-icon {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+  }
+}
+
+
 #profile-posts-cont {
   background-color: $medium-blue;
   min-height: 500px;

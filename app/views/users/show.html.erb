@@ -1,7 +1,14 @@
 <div class="usa-grid usa-width-one-half" id="profile-page-main-cont">
   <div id="profile-info-cont">
     <span id="profile-username-header"><%= @user.username %></span>
-
+    <div id="profile-badge-display">
+      <%= image_tag 'law.png', class: "badge-icon" %>
+      <%= image_tag 'learning.png', class: "badge-icon" %>
+      <%= image_tag 'lecture-1.png', class: "badge-icon" %>
+      <%= image_tag 'writing.png', class: "badge-icon" %>
+      <%= image_tag 'lecture.png', class: "badge-icon" %>
+      <%= image_tag 'notebook.png', class: "badge-icon" %>
+    </div>
     <br>
     <%= image_tag @user.avatar.url(:medium), id: "profile-photo-cont" %>
     <div id="profile-basic-info">
