@@ -1,5 +1,12 @@
 class EntriesController < ApplicationController
 
+  def new
+    respond_to do |format|
+      format.html #still need to test graceful degradation
+      format.js
+    end
+  end
+
   def create
     entry = Entry.new
     entry.user_id = current_user.id
@@ -15,7 +22,10 @@ class EntriesController < ApplicationController
         flash[:error] = entry.errors.full_messages
       end
     end
-    redirect_to controller: 'users', action: 'show', id: current_user.id
+    respond_to do |format|
+      format.html { redirect_to controller: 'users', action: 'show', id: current_user.id }
+      format.js
+    end
   end
 
   def edit

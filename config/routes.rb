@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :quiz_responses, only: [:new, :create, :show]
   resources :congress_members, only: [:index, :show]
-  resources :entries, only: [:create, :edit, :update, :destroy]
+  resources :entries, only: [:new, :create, :edit, :update, :destroy]
   resources :comments, only: [:new, :create, :edit, :update, :destroy]
 
   root 'users#new'

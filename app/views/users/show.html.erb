@@ -28,19 +28,12 @@
     <% end %>
   </div>
 
-
-  <% if signed_in? && @user.id == current_user.id %>
-    <div id="profile-post-form-cont">
-      <%= flash[:notice] %>
-      <%= flash[:error] %>
-      <%= form_tag '/entries' do %>
-        Title(optional): <%= text_field_tag :title %><br>
-        Body: <%= text_area_tag :body %>
-        <%= hidden_field_tag :entry_type, "profile_post" %>
-        <%= submit_tag "Submit", class: "usa-button-secondary"%>
-      <% end %>
+    <% if signed_in? && @user.id == current_user.id %>
+      <%= link_to 'New Post', new_entry_path, remote: true, id: "new-post-btn", class: "usa-button" %>
+    <% end %>
+    <div id="profile-post-btn-cont">
+      <!-- will display form here -->
     </div>
-  <% end %>
 
   <div id="profile-posts-cont">
     <% @posts.each do |post| %>

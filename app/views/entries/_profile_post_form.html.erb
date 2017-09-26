@@ -1,0 +1,10 @@
+<div id="profile-post-form-cont">
+  <%= flash[:notice] %>
+  <%= flash[:error] %>
+  <%= form_tag '/entries', remote: true do %>
+    Title(optional): <%= text_field_tag :title %><br>
+    Body: <%= text_area_tag :body %>
+    <%= hidden_field_tag :entry_type, "profile_post" %>
+    <%= submit_tag "Submit", class: "usa-button-secondary"%>
+  <% end %>
+</div>
