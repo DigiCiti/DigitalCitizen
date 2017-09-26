@@ -1,3 +1,3 @@
-$('#profile-post-btn-cont').fadeOut();
+$('#profile-post-form-cont').slideUp().fadeOut();
 $('#new-post-btn').fadeIn();
-// still need to ajax in the created post by breaking each post out into rendered partial
+$('#profile-posts-cont').prepend('<%= j render "/entries/show", post: @entry %>').hide().fadeIn(800);

@@ -459,7 +459,6 @@ body {
   }
 }
 
-
 #profile-posts-cont {
   background-color: $medium-blue;
   min-height: 500px;
@@ -471,6 +470,7 @@ body {
 }
 
 #profile-post-form-cont {
+  display: none;
   width: 500px;
   margin: 0 auto;
   justify-content: center;
