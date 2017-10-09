@@ -4,21 +4,6 @@ For a thorough explanation of the project concept, with supporting videos, proto
 
 The first pieces of the application are currently hosted [here](https://digiciti.herokuapp.com/) but there is already more content in development.
 
-Sample landing page:
-![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2016-29-08.png?raw=true)
-
-Image sample of quiz for determining ones political stance:
-![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2018-17-22.png?raw=true)
-
-Top of user Hub page showing friend request capability:
-![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2018-04-23.png?raw=true)
-
-Draft features on Hub page for political opinion quiz and connecting with congress member profiles:
-![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2018-03-38.png?raw=true)
-
-Draft politician profile page:
-![Sample Image](https://github.com/DigiCiti/DigitalCitizen/blob/master/Screenshots/Screenshot%20from%202017-08-20%2018-02-25.png?raw=true)
-
 ## A Personal Project
 
 I started working on DigiCiti back in 2011 while I was studying political science and realized how much our antiquated political processes could be improved by use of ubiquitous technological advances.  When I started the project I was not able to program web or mobile applications but I managed to create some mock-up prototypes that were semi functional.  As of July 2017 I completed a coding bootcamp program and started developing digiciti.org as a side project.
