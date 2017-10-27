@@ -84,6 +84,12 @@
 <div class="usa-grid usa-width-one-third hub-section">
   <p>Post</p>
   <p>Feed</p>
+  <% @feed_friend_posts.each do |post| %>
+    <p><%= User.find(post.user_id).username %></p>
+    <p><%= post.title %></p>
+    <p><%= post.body %></p>
+    <p><%= post.updated_at %></p>
+  <% end %>
 </div>
 
 <div class="usa-grid usa-width-one-third hub-section">

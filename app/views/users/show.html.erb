@@ -11,15 +11,22 @@
     </div>
     <br>
     <%= image_tag @user.avatar.url(:medium), id: "profile-photo-cont" %>
-    <div id="profile-basic-info">
+    <div class="profile-basic-info">
       <%= @user.city %><br>
       <%= @user.state %><br>
       <%= @user.country %><br>
       <%= @user.ideology %><br>
       <%= @user.party %><br><br>
       <% if signed_in? && @user.id == current_user.id %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+        <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
       <% end %>
+    </div>
+    <div class="profile-basic-info">
+      <%= "Issues:" %><br>
+      <%= "Verified:" %><br>
+      <%= "Digiciti Since: #{@user.created_at.strftime('%m/%d/%y')}" %><br>
+      <%= "Organizations: " %><br>
+      <%= "Profile Type: " %><br><br>
     </div>
     <% if signed_in? && @user.id != current_user.id && !friend?(@user.id) %>
     <%= button_to "Add Contact", friendships_path(add_id: @user.id), method: :post %>

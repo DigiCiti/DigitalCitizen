@@ -81,6 +81,11 @@ class UsersController < ApplicationController
     @sent_pend_friend_req = Friendship.where("user_id = '#{@user.id}'
       and status = 'unanswered'")
 
+    @feed_friend_posts = []
+    @friendships.each do |friend|
+      @feed_friend_posts << User.find(friend.user_id).entries.last
+    end
+
     # members are not currently sorted by alpha order beyond their last initial
     @house_members = ProPublicaCongressAdapter.new(endpoint: "member_list", branch: "house")
     @house_members = @house_members.members_basic_details
